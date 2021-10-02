@@ -16,7 +16,7 @@ public class ObjectSpawner : MonoBehaviour
         if (spawnerTimer >= 1f / objectsPerSecond)
 		{
             spawnerTimer = 0f;
-            Instantiate(ObjectPrefab, spawnPos + new Vector2(Random.Range(-1.5f, 1.5f), 0f), Quaternion.identity, ObjectsHolder);
+            Instantiate(ObjectPrefab, spawnPos + new Vector2(Random.Range(-1.8f, 1.8f), 0f), Quaternion.identity, ObjectsHolder);
 		}
     }
 
