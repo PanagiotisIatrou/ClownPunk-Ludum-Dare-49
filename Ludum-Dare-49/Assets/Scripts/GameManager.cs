@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     public void IncreasePointsLeft(int theNewPoints)
     {
         leftWeight += theNewPoints;
-        leftText.text = leftText.ToString();
+        leftText.text = leftWeight.ToString();
         if (leftWeight >= rightWeight + 3)
         {
             Debug.Log("GAME OVER");
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     public void IncreasePointsRight(int theNewPoints)
     {
         rightWeight += theNewPoints;
-        rightText.text = rightText.ToString();
+        rightText.text = rightWeight.ToString();
         if (rightWeight >= leftWeight + 3)
         {
             Debug.Log("GAME OVER");
