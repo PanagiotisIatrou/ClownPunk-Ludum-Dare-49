@@ -10,18 +10,13 @@ public class ObjectSpawner : MonoBehaviour
     private float spawnerTimer = 0f;
     private int objectsPerSecond = 1;
 
-    private void Start()
-    {
-        
-    }
-
     private void Update()
     {
         spawnerTimer += Time.deltaTime;
         if (spawnerTimer >= 1f / objectsPerSecond)
 		{
             spawnerTimer = 0f;
-            Instantiate(ObjectPrefab, spawnPos, Quaternion.identity, ObjectsHolder);
+            Instantiate(ObjectPrefab, spawnPos + new Vector2(Random.Range(-1.5f, 1.5f), 0f), Quaternion.identity, ObjectsHolder);
 		}
     }
 }

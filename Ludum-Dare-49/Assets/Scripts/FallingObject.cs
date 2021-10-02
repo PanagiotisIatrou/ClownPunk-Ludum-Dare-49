@@ -8,7 +8,7 @@ public class FallingObject : MonoBehaviour
 	{
 		if (collision.transform.CompareTag("Bag") || collision.transform.name == "Bot")
 		{
-			Destroy(gameObject);
+			gameObject.GetComponent<SpriteFader>().FadeOut();
 		}
 	}
 }
