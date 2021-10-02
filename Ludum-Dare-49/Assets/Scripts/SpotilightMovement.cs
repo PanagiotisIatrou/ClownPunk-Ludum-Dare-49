@@ -6,7 +6,7 @@ public class SpotilightMovement : MonoBehaviour
 {
 
     //public GameObject light;
-    float smooth = 2f;
+    float smooth = 10f;
     float tiltAroundZ = -45f;
     float targetRotation = -90f;
 
@@ -14,19 +14,19 @@ public class SpotilightMovement : MonoBehaviour
     void Update()
     {
         // Smoothly tilts a transform towards a target rotation.
-        if(tiltAroundZ!= targetRotation && targetRotation == -90f)
+        if(tiltAroundZ >= targetRotation && targetRotation == -90f)
         {
-            tiltAroundZ -= 1;
+            tiltAroundZ -= 0.05f;
         }
-        else if(tiltAroundZ != targetRotation && targetRotation == 0f)
+        else if(tiltAroundZ <= targetRotation && targetRotation == 0f)
         {
-            tiltAroundZ += 1;
+            tiltAroundZ += 0.05f;
         }
         else if (targetRotation == -90f)
         {
             targetRotation = 0f;
         }
-        else
+        else if(targetRotation == 0f)
         {
             targetRotation = -90f;
         }
