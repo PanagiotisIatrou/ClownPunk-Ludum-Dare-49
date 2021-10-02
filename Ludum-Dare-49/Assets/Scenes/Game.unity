@@ -1405,7 +1405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 582570669}
   - component: {fileID: 582570670}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3280,7 +3280,7 @@ GameObject:
   - component: {fileID: 1185277188}
   - component: {fileID: 1185277187}
   - component: {fileID: 1185277186}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SpotilightRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3296,7 +3296,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1185277185}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 838606ff8069eb64da4eddcc38820fb0, type: 3}
+  m_Script: {fileID: 11500000, guid: fc4f1592de8d3a943a367aaaa8ab2e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &1185277187
@@ -3358,7 +3358,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185277185}
   m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: 3.27, y: -3.55, z: -3}
+  m_LocalPosition: {x: 3.27, y: -3.55, z: 2}
   m_LocalScale: {x: 4.4088, y: 4.4088, z: 4.4088}
   m_Children:
   - {fileID: 1604462209}
@@ -3720,7 +3720,7 @@ GameObject:
   - component: {fileID: 1237035169}
   - component: {fileID: 1237035168}
   - component: {fileID: 1237035170}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SpotilightLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3786,7 +3786,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237035167}
   m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: -3.35, y: -3.84, z: -3}
+  m_LocalPosition: {x: -3.35, y: -3.84, z: 2}
   m_LocalScale: {x: 4.4088, y: 4.4088, z: 4.4088}
   m_Children:
   - {fileID: 582570669}
@@ -3802,7 +3802,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1237035167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 838606ff8069eb64da4eddcc38820fb0, type: 3}
+  m_Script: {fileID: 11500000, guid: 905c8e76995231d43a77d0395586128f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1254256374
@@ -5009,7 +5009,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1604462209}
   - component: {fileID: 1604462210}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
