@@ -12,7 +12,7 @@ public class BuffsManager : MonoBehaviour
         {
             if (_instance == null)
             {
-                _instance = GameObject.FindObjectOfType<GameManager>();
+                _instance = GameObject.FindObjectOfType<BuffsManager>();
             }
 
             return _instance;

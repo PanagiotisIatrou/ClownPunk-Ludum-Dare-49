@@ -24,7 +24,7 @@ public class BagMovement : MonoBehaviour
         timeboost -= Time.deltaTime;
         time += Time.deltaTime;
         Vector2 offset = Vector2.zero;
-        GameManager.Instance.timeLeftToChange = 16 - (int)Math.Round(time);
+        TextManager.Instance.timeLeftToChange = 16 - (int)Math.Round(time);
         if (time < 16f)
         {
             if (Input.GetKey(KeyCode.LeftArrow))

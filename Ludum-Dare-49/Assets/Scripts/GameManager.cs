@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     public void IncreasePointsLeft(int theNewPoints)
     {
         leftWeight += theNewPoints;
-        leftText.text = leftWeight.ToString();
+        TextManager.Instance.UpdateLeftWeight(leftWeight);
         if (leftWeight >= rightWeight + 3)
         {
             Debug.Log("GAME OVER");
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     public void IncreasePointsRight(int theNewPoints)
     {
         rightWeight += theNewPoints;
-        rightText.text = rightWeight.ToString();
+        TextManager.Instance.UpdateRightWeight(rightWeight);
         if (rightWeight >= leftWeight + 3)
         {
             Debug.Log("GAME OVER");

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TextManager : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class TextManager : MonoBehaviour
         {
             if (_instance == null)
             {
-                _instance = GameObject.FindObjectOfType<GameManager>();
+                _instance = GameObject.FindObjectOfType<TextManager>();
             }
 
             return _instance;
@@ -43,6 +44,16 @@ public class TextManager : MonoBehaviour
             int timeleft = 5 + timeLeftToChange;
             TimeToChangeControls.text = "Time left for the inverted :" + timeleft.ToString();
         }
+    }
+
+    public void UpdateLeftWeight(int point)
+    {
+        leftText.text = point.ToString();
+    }
+    
+    public void UpdateRightWeight(int point)
+    {
+        rightText.text = point.ToString();
     }
 
 }
