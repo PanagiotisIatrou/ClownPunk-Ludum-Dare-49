@@ -21,7 +21,7 @@ public class FallingObject : MonoBehaviour
             {
 				GameManager.Instance.IncreasePointsLeft(weight);
 			}
-			else
+			else if(collision.gameObject.name == "Bag2")
             {
 				GameManager.Instance.IncreasePointsRight(weight);
 			}
