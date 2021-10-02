@@ -9,7 +9,7 @@ public class ObjectSpawner : MonoBehaviour
     private Vector2 spawnPos = new Vector2(0f, 3.5f);
     private float spawnerTimer = 0f;
     private int objectsPerSecond = 1;
-
+        
     private void Update()
     {
         spawnerTimer += Time.deltaTime;

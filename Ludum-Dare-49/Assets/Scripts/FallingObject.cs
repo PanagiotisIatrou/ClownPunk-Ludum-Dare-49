@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FallingObject : MonoBehaviour
 {
-	public int weight = 0;
+	private int weight = 0;
 
 	private void Start()
 	{

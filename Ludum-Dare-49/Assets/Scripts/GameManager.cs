@@ -21,15 +21,31 @@ public class GameManager : MonoBehaviour
     }
 
     // begin for point changing
+    public TextMeshProUGUI TimeToChangeControls;
     public TextMeshProUGUI leftText;
     public TextMeshProUGUI rightText;
-    private int leftWeight;
-    private int rightWeight;
+    public int leftWeight;
+    public int rightWeight;
+    public int timeLeftToChange = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         leftWeight = 0;
         rightWeight = 0;
+    }
+
+    void Update()
+    {
+        if (timeLeftToChange > 0)
+        {
+            TimeToChangeControls.text = "Time left before inverted :" + timeLeftToChange.ToString();
+        }
+        else
+        {
+            int timeleft = 5 + timeLeftToChange;
+            TimeToChangeControls.text = "Time left for the inverted :" + timeleft.ToString();
+        }
     }
 
     // increase the point of the left bag and check the game over
