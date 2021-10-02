@@ -10,6 +10,8 @@ public class BagMovement : MonoBehaviour
     public TextMeshProUGUI RightBagText;
     private Camera mainCamera;
     private float speed = 5f;
+    private float boost = 0f;
+    private float timeboost = 0f;
     private float time = 0f;
 
 	private void Start()
@@ -19,6 +21,7 @@ public class BagMovement : MonoBehaviour
 
 	private void Update()
     {
+        timeboost -= Time.deltaTime;
         time += Time.deltaTime;
         Vector2 offset = Vector2.zero;
         GameManager.Instance.timeLeftToChange = 16 - (int)Math.Round(time);
@@ -46,12 +49,31 @@ public class BagMovement : MonoBehaviour
         }
         if (time > 20f)
             time = 0f;
-        
 
-        transform.position += (Vector3)offset * speed * Time.deltaTime;
-        LeftBagText.transform.position = transform.GetChild(0).position;
-        LeftBagText.transform.position += Vector3.back;
-        RightBagText.transform.position = transform.GetChild(1).position;
-        RightBagText.transform.position += Vector3.back;
+        if (timeboost > 0)
+        {
+            speed = 5f * boost ;
+        }
+        else
+        {
+            speed = 5f;
+        }
+        Vector3 vector = (Vector3)offset * speed * Time.deltaTime;
+        if( vector.x + transform.position.x > -3.5f && vector.x + transform.position.x < 3.5f)
+        {
+            transform.position += vector;
+            LeftBagText.transform.position = transform.GetChild(0).position;
+            LeftBagText.transform.position += Vector3.back;
+            RightBagText.transform.position = transform.GetChild(1).position;
+            RightBagText.transform.position += Vector3.back;
+        }
+                
+       
+    }
+
+    public void GiveTimeBoost(float takeTimeBoost, float takeBoost)
+    {
+        timeboost = takeTimeBoost;
+        boost = takeBoost;
     }
 }

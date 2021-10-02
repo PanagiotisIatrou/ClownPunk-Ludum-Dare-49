@@ -21,11 +21,13 @@ public class FallingObject : MonoBehaviour
             {
 				GameManager.Instance.IncreasePointsLeft(weight);
 				GameManager.Instance.UpdateScore(weight);
+				GameManager.Instance.IncreaseMovementSpeed();
 			}
 			else if(collision.gameObject.name == "Bag2")
             {
 				GameManager.Instance.IncreasePointsRight(weight);
 				GameManager.Instance.UpdateScore(weight);
+				GameManager.Instance.DecreaseMovementSpeed();
 			}
 		}
 	}

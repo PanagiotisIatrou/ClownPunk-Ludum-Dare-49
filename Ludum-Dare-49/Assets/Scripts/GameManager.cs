@@ -20,25 +20,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // begin for point changing
-    public TextMeshProUGUI TimeToChangeControls;
-    public TextMeshProUGUI leftText;
-    public TextMeshProUGUI rightText;
-    public int leftWeight;
-    public int rightWeight;
-    public int timeLeftToChange = 0;
-
-    public TextMeshProUGUI Scoreboard;
-    public int ScoreCounter;
-    public void UpdateScore(int addScore) 
-    {
-        ScoreCounter += addScore;
-        Scoreboard.text = "Score: " + ScoreCounter.ToString();
-    }
-    
-
-    
-
+    private int leftWeight;
+    private int rightWeight;
+      
     // Start is called before the first frame update
     void Start()
     {
@@ -46,17 +30,14 @@ public class GameManager : MonoBehaviour
         rightWeight = 0;
     }
 
-    void Update()
+    public int getLeftWeight()
     {
-        if (timeLeftToChange > 0)
-        {
-            TimeToChangeControls.text = "Time left before inverted :" + timeLeftToChange.ToString();
-        }
-        else
-        {
-            int timeleft = 5 + timeLeftToChange;
-            TimeToChangeControls.text = "Time left for the inverted :" + timeleft.ToString();
-        }
+        return leftWeight;
+    }
+
+    public int getRightWeight()
+    {
+        return rightWeight;
     }
 
     // increase the point of the left bag and check the game over
@@ -81,4 +62,5 @@ public class GameManager : MonoBehaviour
             Debug.Log("GAME OVER");
         }
     }
+
 }

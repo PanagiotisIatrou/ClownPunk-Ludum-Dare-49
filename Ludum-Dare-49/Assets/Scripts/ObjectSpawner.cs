@@ -19,4 +19,5 @@ public class ObjectSpawner : MonoBehaviour
             Instantiate(ObjectPrefab, spawnPos + new Vector2(Random.Range(-1.5f, 1.5f), 0f), Quaternion.identity, ObjectsHolder);
 		}
     }
+
 }
