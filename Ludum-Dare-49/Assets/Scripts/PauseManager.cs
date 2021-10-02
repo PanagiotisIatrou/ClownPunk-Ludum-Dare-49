@@ -4,7 +4,23 @@ using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
-    public static bool isPaused = false;
+	// Singleton
+	private static PauseManager _instance;
+	public static PauseManager Instance
+	{
+		get
+		{
+			if (_instance == null)
+			{
+				_instance = GameObject.FindObjectOfType<PauseManager>();
+			}
+
+			return _instance;
+		}
+	}
+
+	public static bool isPaused = false;
+	public GameObject PausePanel;
 
 	public static bool IsPaused()
 	{
@@ -15,11 +31,13 @@ public class PauseManager : MonoBehaviour
 	{
 		isPaused = true;
 		Time.timeScale = 0f;
+		Instance.PausePanel.SetActive(true);
 	}
 
 	public static void UnPause()
 	{
 		isPaused = false;
 		Time.timeScale = 1f;
+		Instance.PausePanel.SetActive(false);
 	}
 }
