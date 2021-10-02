@@ -10,7 +10,7 @@ public class CustomHinge : MonoBehaviour
     private float targetBagOffsetY1 = 0f;
     private float targetBagOffsetY2 = 0f;
     private int maxDiff = 3;
-    private float offsetLengthY = 0.5f;
+    private float offsetLengthY = 0.4f;
 
     private void Update()
     {
