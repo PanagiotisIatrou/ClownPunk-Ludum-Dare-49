@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251742d632faffc45b1b3e8cff2007e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LeftBagText: {fileID: 1505914381}
+  RightBagText: {fileID: 2066996727}
 --- !u!4 &89473725
 Transform:
   m_ObjectHideFlags: 0
