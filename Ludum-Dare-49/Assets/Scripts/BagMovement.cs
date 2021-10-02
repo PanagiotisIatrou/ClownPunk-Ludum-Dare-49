@@ -59,7 +59,7 @@ public class BagMovement : MonoBehaviour
             speed = 5f;
         }
         Vector3 vector = (Vector3)offset * speed * Time.deltaTime;
-        if( vector.x + transform.position.x > -3.5f && vector.x + transform.position.x < 3.5f)
+        if( vector.x + transform.position.x > -3f && vector.x + transform.position.x < 3f)
         {
             transform.position += vector;
             LeftBagText.transform.position = transform.GetChild(0).position;
