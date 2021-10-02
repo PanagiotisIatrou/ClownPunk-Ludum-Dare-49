@@ -21,7 +21,6 @@ public class BagMovement : MonoBehaviour
     {
         time += Time.deltaTime;
         Vector2 offset = Vector2.zero;
-        Debug.Log(time);
         GameManager.Instance.timeLeftToChange = 16 - (int)Math.Round(time);
         if (time < 16f)
         {

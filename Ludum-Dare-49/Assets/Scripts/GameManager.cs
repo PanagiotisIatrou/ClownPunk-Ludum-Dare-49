@@ -28,6 +28,17 @@ public class GameManager : MonoBehaviour
     public int rightWeight;
     public int timeLeftToChange = 0;
 
+    public TextMeshProUGUI Scoreboard;
+    public int ScoreCounter;
+    public void UpdateScore(int addScore) 
+    {
+        ScoreCounter += addScore;
+        Scoreboard.text = "Score: " + ScoreCounter.ToString();
+    }
+    
+
+    
+
     // Start is called before the first frame update
     void Start()
     {

@@ -20,10 +20,12 @@ public class FallingObject : MonoBehaviour
 			if (collision.gameObject.name == "Bag1")
             {
 				GameManager.Instance.IncreasePointsLeft(weight);
+				GameManager.Instance.UpdateScore(weight);
 			}
 			else if(collision.gameObject.name == "Bag2")
             {
 				GameManager.Instance.IncreasePointsRight(weight);
+				GameManager.Instance.UpdateScore(weight);
 			}
 		}
 	}
