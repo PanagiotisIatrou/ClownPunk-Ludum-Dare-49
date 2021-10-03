@@ -16,6 +16,9 @@ public class FallingObject : MonoBehaviour
 
 			// Fade out
 			GetComponent<SpriteFader>().FadeOut();
+			
+			if (GetComponent<Bomb>())
+				GetComponent<Bomb>().TriggerEffect2();
 
 			// Add weights
 			if (collision.gameObject.name == "Bag1")
