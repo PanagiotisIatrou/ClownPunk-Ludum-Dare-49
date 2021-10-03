@@ -21,15 +21,14 @@ public class LightManager : MonoBehaviour
 
     UnityEngine.Experimental.Rendering.Universal.Light2D lt1;
     UnityEngine.Experimental.Rendering.Universal.Light2D lt2;
-    float duration = 2f;
-    Color color0 = new Color(0.945098f, 0.3476057f, 0f);
-    Color color1 = new Color(1f, 0f, 0F);
+    float duration = 3f;
+    Color color0 = Color.red;
+    Color color1 = Color.blue;
     private float timeOn = 0.1f;
     private float timeOff = 0.1f;
     private float changeTime = 0f;
     private bool flage = false;
 
-    public GameObject specialEffects;
     public GameObject lights1;
     public GameObject lights2;
     
@@ -41,13 +40,12 @@ public class LightManager : MonoBehaviour
         lt1 = lights1.GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>();
         lt2 = lights2.GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>();
         intensity = lt1.intensity;
-        specialEffects.GetComponent<ParticleSystem>().Stop();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float t = Mathf.PingPong(Time.deltaTime, duration) / duration;
+        float t = Mathf.PingPong(Time.time, duration) / duration;
         lt1.color = Color.Lerp(color1, color0, t);
         lt2.color = Color.Lerp(color1, color0, t);
 
@@ -55,17 +53,14 @@ public class LightManager : MonoBehaviour
         {
             lt1.enabled = true;
             lt2.enabled = true;
-            specialEffects.GetComponent<ParticleSystem>().Stop();
         }
         else
         {
             flickering();
-            Debug.Log(specialEffects.GetComponent<ParticleSystem>());
-            specialEffects.GetComponent<ParticleSystem>().Play();
         }
 
 
-        if (intensity >= intensityGoal && intensityGoal == 22f)
+        if (intensity >= intensityGoal && intensityGoal == 10f)
         {
             intensity -= 0.01f;
         }
