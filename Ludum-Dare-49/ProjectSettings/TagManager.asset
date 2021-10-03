@@ -51,6 +51,9 @@ TagManager:
   - name: Spotlight
     uniqueID: 4123317387
     locked: 0
+  - name: FallingObjects
+    uniqueID: 3774597073
+    locked: 0
   - name: Player
     uniqueID: 1527638239
     locked: 0
