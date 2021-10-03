@@ -22,7 +22,7 @@ public class SlowDownEffect : MonoBehaviour
     }
 
     public AudioSource themeSong;
-    public Volume effects;
+    public Volume vignetteEffectVolume;
     private float timeToSet = 0.3f;
     private float slowDownFactor = 0.5f;
     private Coroutine coroutine;
@@ -33,12 +33,12 @@ public class SlowDownEffect : MonoBehaviour
 		{
             Time.timeScale -= Time.deltaTime / timeToSet;
             themeSong.pitch = Time.timeScale;
-            ((Vignette)effects.profile.components[0]).intensity.value = 1f - Time.timeScale;
+            ((Vignette)vignetteEffectVolume.profile.components[0]).intensity.value = 1f - Time.timeScale;
             yield return null;
 		}
         Time.timeScale = slowDownFactor;
         themeSong.pitch = Time.timeScale;
-        ((Vignette)effects.profile.components[0]).intensity.value = 1f - Time.timeScale;
+        ((Vignette)vignetteEffectVolume.profile.components[0]).intensity.value = 1f - Time.timeScale;
     }
 
     private IEnumerator unSlowDown()
@@ -47,12 +47,12 @@ public class SlowDownEffect : MonoBehaviour
         {
             Time.timeScale += Time.deltaTime / timeToSet;
             themeSong.pitch = Time.timeScale;
-            ((Vignette)effects.profile.components[0]).intensity.value = 1f - Time.timeScale;
+            ((Vignette)vignetteEffectVolume.profile.components[0]).intensity.value = 1f - Time.timeScale;
             yield return null;
         }
         Time.timeScale = 1f;
         themeSong.pitch = Time.timeScale;
-        ((Vignette)effects.profile.components[0]).intensity.value = 1f - Time.timeScale;
+        ((Vignette)vignetteEffectVolume.profile.components[0]).intensity.value = 1f - Time.timeScale;
     }
 
     private IEnumerator slowDownForSeconds(float time)

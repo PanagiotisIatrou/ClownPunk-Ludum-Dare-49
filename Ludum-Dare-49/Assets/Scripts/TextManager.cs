@@ -20,9 +20,6 @@ public class TextManager : MonoBehaviour
         }
     }
 
-    // begin for point changing
-    public TextMeshProUGUI TimeToChangeControls;
-    
     public TextMeshProUGUI leftText;
     public TextMeshProUGUI rightText;
     public int timeLeftToChange = 0;
@@ -46,21 +43,6 @@ public class TextManager : MonoBehaviour
         GameOverScore.text = "Score: " + ScoreCounter.ToString();
         HighScoreText.text = "High Score: " + HighScore.ToString();
     }
-    void Update()
-    {
-        if (GameManager.Instance.getIsPlaying() == false)
-            return;
-
-        if (timeLeftToChange > 0)
-        {
-            TimeToChangeControls.text = "Time left before inverted :" + timeLeftToChange.ToString();
-        }
-        else
-        {
-            int timeleft = 5 + timeLeftToChange;
-            TimeToChangeControls.text = "Time left for the inverted :" + timeleft.ToString();
-        }
-    }
 
     public void UpdateLeftWeight(int point)
     {
@@ -76,7 +58,6 @@ public class TextManager : MonoBehaviour
     {
         ScoreCounter = 0;
         timeLeftToChange = 0;
-        TimeToChangeControls.text = "Time left before inverted :" + timeLeftToChange.ToString();
         Scoreboard.text = "Score: " + ScoreCounter.ToString();
         UpdateLeftWeight(0);
         UpdateRightWeight(0);

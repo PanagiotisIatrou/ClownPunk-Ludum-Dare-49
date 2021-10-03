@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     public Sprite SharkRightSprite;
     public Sprite SharkUpSprite;
+    public BagMovement BagMovementScript;
 
     private int leftWeight;
     private int rightWeight;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FallingShark : MonoBehaviour
 {
-    public void TriggerEffect3()
+    public void TriggerEffect()
 
     {
         GameManager.Instance.GameOver();

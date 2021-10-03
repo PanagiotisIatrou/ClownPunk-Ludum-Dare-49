@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    public void TriggerEffect2()
-
+    public void TriggerEffect()
     {
         GameManager.Instance.GameOver();
     }

@@ -10,32 +10,29 @@ public class FallingObject : MonoBehaviour
 	{
 		if (collision.transform.CompareTag("Bag"))
 		{
+			// Fade out
+			GetComponent<SpriteFader>().FadeOut();
+
 			// Apply effects
 			if (GetComponent<Hourglass>())
 				GetComponent<Hourglass>().TriggerEffect();
-
-			// Fade out
-			GetComponent<SpriteFader>().FadeOut();
-			
-			if (GetComponent<Bomb>())
-				GetComponent<Bomb>().TriggerEffect2();
-
-			if (GetComponent<FallingShark>())
-				GetComponent<FallingShark>().TriggerEffect3();
-
+			else if (GetComponent<Bomb>())
+				GetComponent<Bomb>().TriggerEffect();
+			else if (GetComponent<FallingShark>())
+				GetComponent<FallingShark>().TriggerEffect();
+			else if (GetComponent<Bottle>())
+				GetComponent<Bottle>().TriggerEffect();
 
 			// Add weights
 			if (collision.gameObject.name == "Bag1")
 			{
 				GameManager.Instance.IncreasePointsLeft(weight);
 				TextManager.Instance.UpdateScore(weight);
-				//BuffsManager.Instance.IncreaseMovementSpeed();
 			}
 			else if (collision.gameObject.name == "Bag2")
 			{
 				GameManager.Instance.IncreasePointsRight(weight);
 				TextManager.Instance.UpdateScore(weight);
-				//BuffsManager.Instance.DecreaseMovementSpeed();
 			}
 		}
 		else if (collision.transform.name == "Ground")
