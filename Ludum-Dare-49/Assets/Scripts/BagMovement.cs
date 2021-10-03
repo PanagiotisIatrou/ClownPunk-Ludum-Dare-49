@@ -19,6 +19,14 @@ public class BagMovement : MonoBehaviour
         mainCamera = Camera.main;
 	}
 
+    public void Restart()
+    {
+        speed = 5f;
+        boost = 0f;
+        timeboost = 0f;
+        time = 0f;
+    }
+
 	private void Update()
     {
         if (GameManager.Instance.getIsPlaying())

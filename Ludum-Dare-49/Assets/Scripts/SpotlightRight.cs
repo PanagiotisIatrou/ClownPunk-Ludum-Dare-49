@@ -7,7 +7,6 @@ public class SpotlightRight : MonoBehaviour
     //public GameObject light;
     private float smooth = 10f;
     private float tiltAroundZ = -45f;
-    private float targetRotation = 0f;
     private float counter = 0f;
     // Update is called once per frame
     void Update()

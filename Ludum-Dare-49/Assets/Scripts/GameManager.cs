@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     private int leftWeight;
     private int rightWeight;
+    private IEnumerator coroutine;
 
     private bool restart = false;
     private bool isPlaying = false;
@@ -34,14 +35,8 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if (isPlaying)
-        {
-            if (restart)
-            {
-                leftWeight = 0;
-                rightWeight = 0;
-            }
-        }
+        if (!isPlaying)
+            return;
     }
 
     public bool getIsPlaying()
@@ -58,6 +53,7 @@ public class GameManager : MonoBehaviour
     {
         restart = newRestart;
     }
+
 
     public void changeIsPlaying(bool newIsPlaying)
     {
@@ -83,6 +79,8 @@ public class GameManager : MonoBehaviour
 
         if (leftWeight >= rightWeight + 3)
         {
+            isPlaying = false;
+            Restart();
             ButtonListeners.Instance.GameOver();
         }
     }
@@ -97,10 +95,26 @@ public class GameManager : MonoBehaviour
         AirManager.Instance.StartAirLeft();
         if (rightWeight >= leftWeight + 3)
         {
+            isPlaying = false;
+            Restart();
             ButtonListeners.Instance.GameOver();
         }
     }
 
+    public GameObject text;
+    public GameObject objectSpawner;
+    public GameObject airManager;
+    public GameObject bagMovement;
+
+    private void Restart()
+    {
+        text.GetComponent<TextManager>().Restart();
+        objectSpawner.GetComponent<ObjectSpawner>().Restart();
+        airManager.GetComponent<AirManager>().Restart();
+        bagMovement.GetComponent<BagMovement>().Restart();
+        leftWeight = 0;
+        rightWeight = 0;
+    }
     private void checkForFlickering(){
          if (leftWeight >= rightWeight + 1)
         {

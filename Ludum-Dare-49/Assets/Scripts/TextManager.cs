@@ -46,6 +46,9 @@ public class TextManager : MonoBehaviour
     }
     void Update()
     {
+        if (GameManager.Instance.getIsPlaying() == false)
+            return;
+
         if (timeLeftToChange > 0)
         {
             TimeToChangeControls.text = "Time left before inverted :" + timeLeftToChange.ToString();
@@ -67,4 +70,13 @@ public class TextManager : MonoBehaviour
         rightText.text = point.ToString();
     }
 
+    public void Restart()
+    {
+        ScoreCounter = 0;
+        timeLeftToChange = 0;
+        TimeToChangeControls.text = "Time left before inverted :" + timeLeftToChange.ToString();
+        Scoreboard.text = "Score: " + ScoreCounter.ToString();
+        UpdateLeftWeight(0);
+        UpdateRightWeight(0);
+    }
 }

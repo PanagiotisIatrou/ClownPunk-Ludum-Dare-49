@@ -13,6 +13,9 @@ public class ObjectSpawner : MonoBehaviour
     private float Bounds = 1.8f;
     private void Update()
     {
+        if (GameManager.Instance.getIsPlaying() == false)
+            return;
+
         spawnerTimer += Time.deltaTime;
         if (spawnerTimer >= 1f / objectsPerSecond)
 		{
@@ -22,4 +25,8 @@ public class ObjectSpawner : MonoBehaviour
 		}
     }
 
+    public void Restart()
+    {
+        spawnerTimer = 0;
+    }
 }

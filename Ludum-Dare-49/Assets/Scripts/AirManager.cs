@@ -25,23 +25,22 @@ public class AirManager : MonoBehaviour
     private float spawnerTimer = 0f;
     private int air = 0;
 
+    public void Restart()
+    { 
+        spawnerTimer = 0f;
+        StopAir();
+    }
+
     private void Update()
     {
-        if (GameManager.Instance.getIsPlaying())
+        if (GameManager.Instance.getIsPlaying() == false)
+            return ;
+
+        spawnerTimer += Time.deltaTime;
+        if (spawnerTimer >= secondForAir)
         {
-            if (GameManager.Instance.getRestart())
-            {
-                secondForAir = 5f;
-                spawnerTimer = 0f;
-                air = 0;
-                coroutine = null;
-            }
-            spawnerTimer += Time.deltaTime;
-            if (spawnerTimer >= secondForAir)
-            {
-                spawnerTimer = 0f;
-                StartAirRandomly();
-            }
+            spawnerTimer = 0f;
+            StartAirRandomly();
         }
        
     }
