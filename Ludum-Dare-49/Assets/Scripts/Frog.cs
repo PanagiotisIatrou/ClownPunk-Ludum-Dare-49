@@ -17,6 +17,6 @@ public class Frog : MonoBehaviour
 	private void Update()
     {
         timer += Time.deltaTime;
-        transform.position = startPos + new Vector2(Mathf.Sin(timer) * swayBoundX, Mathf.Sin(timer) * swayBoundY);
+        transform.position = startPos + new Vector2(Mathf.Sin(timer * 0.5f) * swayBoundX, Mathf.Sin(timer) * swayBoundY);
     }
 }
