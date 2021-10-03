@@ -112,32 +112,30 @@ public class ButtonListeners : MonoBehaviour
 		gameOver.SetActive(true);
 	}
 
-	private float timeToSet = 0.3f;
+	private float timeToSet = 0.5f;
 	private Coroutine coroutine;
 	public Volume effects;
 
 	private IEnumerator GameOverEffectOn()
 	{
-		float count = Time.timeScale;
-		while (count > 1f)
+		Vignette vignette = (Vignette)effects.profile.components[0];
+		while (vignette.intensity.value < 0.5f)
 		{
-			count -= Time.deltaTime / timeToSet;
-			((Vignette)effects.profile.components[0]).intensity.value = 1f - count;
+			vignette.intensity.value += 0.5f * Time.deltaTime / timeToSet;
 			yield return null;
 		}
-		((Vignette)effects.profile.components[0]).intensity.value = 1f - count;
+		vignette.intensity.value = 0.5f;
 	}
 
 	private IEnumerator GameOverEffectOff()
 	{
-		float count = Time.timeScale;
-		while (count < 1f)
+		Vignette vignette = (Vignette)effects.profile.components[0];
+		while (vignette.intensity.value > 0f)
 		{
-			count += Time.deltaTime / timeToSet;
-			((Vignette)effects.profile.components[0]).intensity.value = 1f - count;
+			vignette.intensity.value -= 0.5f * Time.deltaTime / timeToSet;
 			yield return null;
 		}
-		((Vignette)effects.profile.components[0]).intensity.value = 1f - count;
+		vignette.intensity.value = 0f;
 	}
 
 }
