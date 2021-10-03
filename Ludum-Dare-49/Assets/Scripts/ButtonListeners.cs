@@ -79,6 +79,6 @@ public class ButtonListeners : MonoBehaviour
 		Menu.SetActive(false);
 		HowToPlay.SetActive(false);
 		Credits.SetActive(false);
-		gameOver.SetActive(true)
+		gameOver.SetActive(true);
 	}
 }
