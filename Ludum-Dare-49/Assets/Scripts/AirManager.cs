@@ -27,12 +27,11 @@ public class AirManager : MonoBehaviour
 
     private void Update()
     {
-        StartAirLeft();
         spawnerTimer += Time.deltaTime;
         if (spawnerTimer >= secondForAir)
         {
             spawnerTimer = 0f;
-            StartAirLeft();
+            StartAirRandomly();
         }
     }
 
