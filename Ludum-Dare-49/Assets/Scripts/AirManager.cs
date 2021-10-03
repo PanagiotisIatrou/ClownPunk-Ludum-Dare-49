@@ -21,29 +21,36 @@ public class AirManager : MonoBehaviour
     private IEnumerator coroutine;
 
     public GameObject Air;
+
     public void StartAirLeft()
     {
         coroutine = Left(0.5f);
     }
+
     private IEnumerator Left(float waitTime)
     {
-        while (Air.GetComponent<AreaEffector2D>().forceMagnitude < 2f)
+        AreaEffector2D air = Air.GetComponent<AreaEffector2D>();
+        while (air.forceMagnitude < 2f)
         {
-            yield return new WaitForSeconds(waitTime);
-            Air.GetComponent<AreaEffector2D>().forceMagnitude += 0.1f;
+            air.forceMagnitude += Time.deltaTime / waitTime;
+            yield return null;
         }
+        air.forceMagnitude = 2f;
     }
+
     public void StartAirRight()
     {
-        while (Air.GetComponent<AreaEffector2D>().forceMagnitude >-2f)
+        while (Air.GetComponent<AreaEffector2D>().forceMagnitude > -2f)
         {
             Air.GetComponent<AreaEffector2D>().forceMagnitude -= Time.deltaTime;
         }
     }
+
     public void StartAirRandomly()
     {
 
     }
+
     public void StopAir()
     {
         while (Air.GetComponent<AreaEffector2D>().forceMagnitude != 0)
