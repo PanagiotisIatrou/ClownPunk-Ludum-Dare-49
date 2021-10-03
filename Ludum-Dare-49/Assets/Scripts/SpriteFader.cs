@@ -13,7 +13,7 @@ public class SpriteFader : MonoBehaviour
 
 	private IEnumerator fadeOut()
 	{
-		Destroy(GetComponent<BoxCollider2D>());
+		Destroy(GetComponent<Collider2D>());
 
 		SpriteRenderer sr = GetComponent<SpriteRenderer>();
 		while (sr.color.a > 0f)
