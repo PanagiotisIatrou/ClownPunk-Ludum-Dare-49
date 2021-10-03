@@ -35,6 +35,8 @@ public class TextManager : MonoBehaviour
 
     public void UpdateScore(int addScore)
     {
+        if (!GameManager.Instance.getIsPlaying())
+            return;
         ScoreCounter += addScore;
         if (HighScore < ScoreCounter)
         {

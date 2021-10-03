@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
@@ -67,9 +68,7 @@ public class GameManager : MonoBehaviour
 
         if (leftWeight >= rightWeight + 3)
         {
-            isPlaying = false;
-            Restart();
-            ButtonListeners.Instance.GameOver();
+            GameOver();
         }
     }
 
@@ -83,9 +82,7 @@ public class GameManager : MonoBehaviour
         AirManager.Instance.StartAirLeft();
         if (rightWeight >= leftWeight + 3)
         {
-            isPlaying = false;
-            Restart();
-            ButtonListeners.Instance.GameOver();
+            GameOver();
         }
     }
 
@@ -103,6 +100,7 @@ public class GameManager : MonoBehaviour
         leftWeight = 0;
         rightWeight = 0;
     }
+    
     private void checkForFlickering(){
          if (leftWeight >= rightWeight + 1)
         {
@@ -121,5 +119,49 @@ public class GameManager : MonoBehaviour
             LightManager.Instance.flickeringOn();
         }
     }
+    
+    public GameObject Play;
+    public GameObject Menu;
+    public GameObject HowToPlay;
+    public GameObject Credits;
+    public GameObject gameOver;
 
+    private float timeToSet = 0.5f;
+    private IEnumerator coroutine2;
+    public Volume effects;
+    private IEnumerator GameOverEffectOn()
+    {
+        Vignette vignette = (Vignette)effects.profile.components[0];
+        while (vignette.intensity.value < 0.5f)
+        {
+            vignette.intensity.value += 0.5f * Time.deltaTime / timeToSet;
+            yield return null;
+        }
+        vignette.intensity.value = 0.5f;
+    }
+
+    private IEnumerator GameOverEffectOff()
+    {
+        Vignette vignette = (Vignette)effects.profile.components[0];
+        while (vignette.intensity.value > 0f)
+        {
+            vignette.intensity.value -= 0.5f * Time.deltaTime / timeToSet;
+            yield return null;
+        }
+        vignette.intensity.value = 0f;
+    }
+
+    public void GameOver()
+    {
+        isPlaying = false;
+        Restart();
+        if (coroutine2 != null)
+            StopCoroutine(coroutine2);
+        StartCoroutine(GameOverEffectOn());
+        Play.SetActive(false);
+        Menu.SetActive(false);
+        HowToPlay.SetActive(false);
+        Credits.SetActive(false);
+        gameOver.SetActive(true);
+    }
 }

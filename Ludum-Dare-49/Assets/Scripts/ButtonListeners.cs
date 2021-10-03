@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 
 public class ButtonListeners : MonoBehaviour
 {
@@ -39,12 +37,7 @@ public class ButtonListeners : MonoBehaviour
 
 	public void PlayButton()
 	{
-		if (coroutine != null)
-		{
-			StopCoroutine(coroutine);
-			StartCoroutine(GameOverEffectOff());
-			StopCoroutine(coroutine);
-		}
+
 		Play.SetActive(true);
 		Menu.SetActive(false);
 		HowToPlay.SetActive(false);
@@ -56,12 +49,6 @@ public class ButtonListeners : MonoBehaviour
 
 	public void MenuButton()
 	{
-		if (coroutine != null)
-		{
-			StopCoroutine(coroutine);
-			StartCoroutine(GameOverEffectOff());
-			StopCoroutine(coroutine);
-		}
 		Play.SetActive(false);
 		Menu.SetActive(true);
 		HowToPlay.SetActive(false);
@@ -71,12 +58,6 @@ public class ButtonListeners : MonoBehaviour
 
 	public void HowToPlayButton()
     {
-		if (coroutine != null)
-		{
-			StopCoroutine(coroutine);
-			StartCoroutine(GameOverEffectOff());
-			StopCoroutine(coroutine);
-		}
 		Play.SetActive(false);
 		Menu.SetActive(false);
 		HowToPlay.SetActive(true);
@@ -86,56 +67,11 @@ public class ButtonListeners : MonoBehaviour
 
 	public void CreditsButton()
 	{
-		if (coroutine != null)
-        {
-			StopCoroutine(coroutine);
-			StartCoroutine(GameOverEffectOff());
-			StopCoroutine(coroutine);
-		}
-		StopCoroutine(coroutine);
 		Play.SetActive(false);
 		Menu.SetActive(false);
 		HowToPlay.SetActive(false);
 		Credits.SetActive(true);
 		gameOver.SetActive(false);
-	}
-
-	public void GameOver()
-    {
-		if (coroutine != null)
-			StopCoroutine(coroutine);
-		StartCoroutine(GameOverEffectOn());
-		Play.SetActive(false);
-		Menu.SetActive(false);
-		HowToPlay.SetActive(false);
-		Credits.SetActive(false);
-		gameOver.SetActive(true);
-	}
-
-	private float timeToSet = 0.5f;
-	private Coroutine coroutine;
-	public Volume effects;
-
-	private IEnumerator GameOverEffectOn()
-	{
-		Vignette vignette = (Vignette)effects.profile.components[0];
-		while (vignette.intensity.value < 0.5f)
-		{
-			vignette.intensity.value += 0.5f * Time.deltaTime / timeToSet;
-			yield return null;
-		}
-		vignette.intensity.value = 0.5f;
-	}
-
-	private IEnumerator GameOverEffectOff()
-	{
-		Vignette vignette = (Vignette)effects.profile.components[0];
-		while (vignette.intensity.value > 0f)
-		{
-			vignette.intensity.value -= 0.5f * Time.deltaTime / timeToSet;
-			yield return null;
-		}
-		vignette.intensity.value = 0f;
 	}
 
 }
