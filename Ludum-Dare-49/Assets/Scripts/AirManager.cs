@@ -43,7 +43,6 @@ public class AirManager : MonoBehaviour
     public void StartAirRandomly()
     {
         int whatToChoose = Random.Range(1, 5);
-        Debug.Log(whatToChoose);
         if (whatToChoose == 1 && whatToChoose == 2)
         {
             StopAir();
