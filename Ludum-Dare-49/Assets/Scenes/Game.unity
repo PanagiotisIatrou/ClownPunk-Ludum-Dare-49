@@ -1974,7 +1974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &585479172
 Transform:
   m_ObjectHideFlags: 0
@@ -3244,6 +3244,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c796cfb5d0bd0c478be530f2727a715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 1493702227}
+  objectSpawner: {fileID: 527946080}
+  airManager: {fileID: 1748658808}
+  bagMovement: {fileID: 1221311578}
 --- !u!4 &873424654
 Transform:
   m_ObjectHideFlags: 0
@@ -3889,7 +3893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1145313867
 Transform:
   m_ObjectHideFlags: 0
@@ -6358,7 +6362,7 @@ GameObject:
   - component: {fileID: 1748658812}
   - component: {fileID: 1748658809}
   m_Layer: 0
-  m_Name: Air
+  m_Name: AirManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
