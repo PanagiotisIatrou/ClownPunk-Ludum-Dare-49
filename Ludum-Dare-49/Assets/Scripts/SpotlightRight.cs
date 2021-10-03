@@ -11,7 +11,7 @@ public class SpotlightRight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tiltAroundZ = (Mathf.Sin(Time.time * 0.75f) * 90f + 90f) / 2 - 90f;
+        tiltAroundZ = (Mathf.Sin(Time.time * 0.75f) * 90f + 90f) / 3 - 90f + 45f + 30f;
 
         // Rotate the cube by converting the angles into a quaternion.
         Quaternion target = Quaternion.Euler(0, 0, tiltAroundZ);
