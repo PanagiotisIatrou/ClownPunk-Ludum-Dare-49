@@ -9,14 +9,15 @@ public class ObjectSpawner : MonoBehaviour
     private Vector2 spawnPos = new Vector2(0f, 3.5f);
     private float spawnerTimer = 0f;
     private int objectsPerSecond = 1;
-        
+
+    private float Bounds = 1.8f;
     private void Update()
     {
         spawnerTimer += Time.deltaTime;
         if (spawnerTimer >= 1f / objectsPerSecond)
 		{
             spawnerTimer = 0f;
-            Instantiate(ObjectPrefab, spawnPos + new Vector2(Random.Range(-1.8f, 1.8f), 0f), Quaternion.identity, ObjectsHolder);
+            Instantiate(ObjectPrefab, spawnPos + new Vector2(Random.Range(-Bounds, Bounds), 0f), Quaternion.identity, ObjectsHolder);
 		}
     }
 
