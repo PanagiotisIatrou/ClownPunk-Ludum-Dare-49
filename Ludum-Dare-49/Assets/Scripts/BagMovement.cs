@@ -8,6 +8,7 @@ public class BagMovement : MonoBehaviour
 {
     public TextMeshProUGUI LeftBagText;
     public TextMeshProUGUI RightBagText;
+    public Transform clownWheel;
     private Camera mainCamera;
     private float speed = 5f;
     private float boost = 0f;
@@ -67,6 +68,12 @@ public class BagMovement : MonoBehaviour
             }
             if (time > 20f)
                 time = 0f;
+
+            // Turn wheel
+            if (offset.x > 0)
+                clownWheel.transform.Rotate(new Vector3(0f, 0f, -Time.deltaTime * 270f));
+            else if (offset.x < 0)
+                clownWheel.transform.Rotate(new Vector3(0f, 0f, Time.deltaTime * 270f));
 
             if (timeboost > 0)
             {
