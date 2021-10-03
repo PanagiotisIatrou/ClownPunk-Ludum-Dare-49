@@ -6,12 +6,6 @@ public class FallingObject : MonoBehaviour
 {
 	private int weight = 0;
 
-	private void Start()
-	{
-		transform.position += Vector3.forward;
-		weight = 1;
-	}
-
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (collision.transform.CompareTag("Bag"))
