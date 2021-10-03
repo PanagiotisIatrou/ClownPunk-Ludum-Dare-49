@@ -171,7 +171,6 @@ MonoBehaviour:
   HowToPlay: {fileID: 998808001}
   Credits: {fileID: 1086931750}
   gameOver: {fileID: 74739354}
-  effects: {fileID: 519420033}
 --- !u!1 &34272572
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &74739355
 Transform:
   m_ObjectHideFlags: 0
@@ -3656,6 +3655,12 @@ MonoBehaviour:
   objectSpawner: {fileID: 527946080}
   airManager: {fileID: 1748658808}
   bagMovement: {fileID: 221108301}
+  Play: {fileID: 585479171}
+  Menu: {fileID: 1145313866}
+  HowToPlay: {fileID: 998808001}
+  Credits: {fileID: 1086931750}
+  gameOver: {fileID: 74739354}
+  effects: {fileID: 519420033}
 --- !u!4 &873424654
 Transform:
   m_ObjectHideFlags: 0
@@ -4384,7 +4389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1145313867
 Transform:
   m_ObjectHideFlags: 0

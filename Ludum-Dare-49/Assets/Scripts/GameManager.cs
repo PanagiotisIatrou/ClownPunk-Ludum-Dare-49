@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
 
     private int leftWeight;
     private int rightWeight;
-    private IEnumerator coroutine;
 
     private bool isPlaying = false;
 
@@ -127,7 +126,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOver;
 
     private float timeToSet = 0.5f;
-    private IEnumerator coroutine2;
+    private IEnumerator coroutine;
     public Volume effects;
     private IEnumerator GameOverEffectOn()
     {
@@ -155,8 +154,8 @@ public class GameManager : MonoBehaviour
     {
         isPlaying = false;
         Restart();
-        if (coroutine2 != null)
-            StopCoroutine(coroutine2);
+        if (coroutine != null)
+            StopCoroutine(coroutine);
         StartCoroutine(GameOverEffectOn());
         Play.SetActive(false);
         Menu.SetActive(false);
