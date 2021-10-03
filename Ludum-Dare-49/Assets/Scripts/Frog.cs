@@ -5,7 +5,7 @@ using UnityEngine;
 public class Frog : MonoBehaviour
 {
     private Vector2 startPos;
-    private float swayBoundX = 2f;
+    private float swayBoundX = 1.6f;
     private float swayBoundY = 0.5f;
     private float timer = 0f;
 
