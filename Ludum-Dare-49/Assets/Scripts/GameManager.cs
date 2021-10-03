@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
     {
         leftWeight += theNewPoints;
         TextManager.Instance.UpdateLeftWeight(leftWeight);
-        AirManager.Instance.StartAirLeft();
         checkForFlickering();
 
         if (leftWeight >= rightWeight + 3)
@@ -61,9 +60,8 @@ public class GameManager : MonoBehaviour
     {
         rightWeight += theNewPoints;
         TextManager.Instance.UpdateRightWeight(rightWeight);
-        AirManager.Instance.StartAirRight();
         checkForFlickering();
-
+        AirManager.Instance.StartAirLeft();
         if (rightWeight >= leftWeight + 3)
         {
             ButtonListeners.Instance.GameOver();

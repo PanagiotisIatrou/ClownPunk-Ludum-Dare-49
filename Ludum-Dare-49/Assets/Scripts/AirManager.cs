@@ -18,61 +18,99 @@ public class AirManager : MonoBehaviour
             return _instance;
         }
     }
-    private IEnumerator coroutine;
 
     public GameObject Air;
+    private IEnumerator coroutine;
+    private float secondForAir = 5f;
+    private float spawnerTimer = 0f;
+    private int air = 0;
 
-    public void StartAirLeft()
+    private void Update()
     {
-        if(coroutine != null)
-            StopCoroutine(coroutine);
-        coroutine = Left(0.5f);
-        StartCoroutine(coroutine);
-    }
-
-    private IEnumerator Right(float waitTime)
-    {
-        AreaEffector2D air = Air.GetComponent<AreaEffector2D>();
-        while (air.forceMagnitude < 2f)
+        StartAirLeft();
+        spawnerTimer += Time.deltaTime;
+        if (spawnerTimer >= secondForAir)
         {
-            air.forceMagnitude += Time.deltaTime / waitTime;
-            yield return null;
+            spawnerTimer = 0f;
+            StartAirLeft();
         }
-        air.forceMagnitude = 2f;
     }
 
-    public void StartAirRight()
+    public int getTypeAir()
     {
-        if (coroutine != null)
-            StopCoroutine(coroutine);
-        coroutine = Right(0.5f);
-        StartCoroutine(coroutine);
-    }
-
-    public IEnumerator Left(float waitTime)
-    {
-        AreaEffector2D air = Air.GetComponent<AreaEffector2D>();
-        while (air.forceMagnitude < 2f)
-        {
-            air.forceMagnitude -= Time.deltaTime / waitTime;
-            yield return null;
-        }
-        air.forceMagnitude = 2f;
+        return air;
     }
 
     public void StartAirRandomly()
     {
+        int whatToChoose = Random.Range(1, 5);
+        Debug.Log(whatToChoose);
+        if (whatToChoose == 1 && whatToChoose == 2)
+        {
+            StopAir();
+        }
+        else if (whatToChoose == 3)
+        {
+            StartAirRight();
+        }
+        else
+        {
+            StartAirLeft();
+        }
+    }
 
+    public void StartAirLeft()
+    {
+        air = 2;
+        if(coroutine != null)
+            StopCoroutine(coroutine);
+        coroutine = Left(0.5f,-1.5f);
+        StartCoroutine(coroutine);
+    }
+
+    public void StartAirRight()
+    {
+        air = 1;
+        if (coroutine != null)
+            StopCoroutine(coroutine);
+        coroutine = Right(0.5f,1.5f);
+        StartCoroutine(coroutine);
     }
 
     public void StopAir()
     {
-        while (Air.GetComponent<AreaEffector2D>().forceMagnitude != 0)
-        {
-            if (Air.GetComponent<AreaEffector2D>().forceMagnitude > 0)
-                Air.GetComponent<AreaEffector2D>().forceMagnitude -= Time.deltaTime;
-            else
-                Air.GetComponent<AreaEffector2D>().forceMagnitude += Time.deltaTime;
-        }
+        air = 0;
+        if (coroutine != null)
+            StopCoroutine(coroutine);
+        if (Air.GetComponent<AreaEffector2D>().forceMagnitude > 0)
+            coroutine = Left(0.5f, 0f);
+        else
+            coroutine = Right(0.5f, 0f);
+        StartCoroutine(coroutine);
     }
+
+    private IEnumerator Right(float waitTime, float whereToStop)
+    {
+        AreaEffector2D air = Air.GetComponent<AreaEffector2D>();
+        while (air.forceMagnitude < whereToStop)
+        {
+            air.forceMagnitude += Time.deltaTime / waitTime;
+            yield return null;
+        }
+        air.forceMagnitude = whereToStop;
+    }
+    
+    public IEnumerator Left(float waitTime, float whereToStop)
+    {
+        AreaEffector2D air = Air.GetComponent<AreaEffector2D>();
+        while (air.forceMagnitude > whereToStop)
+        {
+            air.forceMagnitude -= Time.deltaTime / waitTime;
+            yield return null;
+        }
+        air.forceMagnitude = whereToStop;
+    }
+
+
+
 }
