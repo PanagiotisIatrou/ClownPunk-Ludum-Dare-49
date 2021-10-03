@@ -22,8 +22,6 @@ public class FallingObject : MonoBehaviour
 				GetComponent<FallingShark>().TriggerEffect();
 			else if (GetComponent<Bottle>())
 				GetComponent<Bottle>().TriggerEffect();
-			else if (GetComponent<Scissors>())
-				GetComponent<Scissors>().TriggerEffect();
 
 			// Add weights
 			if (collision.gameObject.name == "Bag1")
@@ -39,6 +37,8 @@ public class FallingObject : MonoBehaviour
 		}
 		else if (collision.transform.name == "Ground")
 		{
+			if (GetComponent<Scissors>() != null)
+				GetComponent<Scissors>().TriggerEffect();
 			// Fade out
 			GetComponent<SpriteFader>().FadeOut();
 		}
