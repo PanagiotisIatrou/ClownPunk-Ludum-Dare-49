@@ -1885,6 +1885,7 @@ MonoBehaviour:
   ObjectPrefabs:
   - {fileID: 562937830431414509, guid: 74f9a74a9b906c84e82047fc2b3b4248, type: 3}
   - {fileID: 2480807563763579821, guid: 1026c07e8190f2a469828405899bea2c, type: 3}
+  - {fileID: 1556553117027686579, guid: 1fe4e291db6a8c44f943444933c3e536, type: 3}
   ObjectsHolder: {fileID: 2016018399}
 --- !u!1 &582570668
 GameObject:
@@ -4421,7 +4422,7 @@ GameObject:
   - component: {fileID: 1221311579}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
