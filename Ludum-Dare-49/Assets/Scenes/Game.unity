@@ -3660,7 +3660,7 @@ MonoBehaviour:
   HowToPlay: {fileID: 998808001}
   Credits: {fileID: 1086931750}
   gameOver: {fileID: 74739354}
-  effects: {fileID: 519420033}
+  effects: {fileID: 519420034}
 --- !u!4 &873424654
 Transform:
   m_ObjectHideFlags: 0
