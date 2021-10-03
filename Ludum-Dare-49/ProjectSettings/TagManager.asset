@@ -60,3 +60,6 @@ TagManager:
   - name: Canvas
     uniqueID: 1041180423
     locked: 0
+  - name: AfterCanvas
+    uniqueID: 2252712563
+    locked: 0
