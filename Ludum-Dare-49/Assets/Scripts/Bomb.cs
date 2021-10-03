@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
+    public void TriggerEffect2()
 
-    public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Bag")
-        {
-            Destroy(collision.gameObject);
-        }
+        GameManager.Instance.GameOver();
     }
+
 }
