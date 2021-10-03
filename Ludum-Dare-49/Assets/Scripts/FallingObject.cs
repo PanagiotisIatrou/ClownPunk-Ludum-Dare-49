@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FallingObject : MonoBehaviour
 {
-	private int weight = 0;
+	private int weight = 1;
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
