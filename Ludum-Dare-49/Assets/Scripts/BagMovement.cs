@@ -64,9 +64,9 @@ public class BagMovement : MonoBehaviour
 
         // Turn wheel
         if (offset.x > 0)
-            clownWheel.transform.Rotate(new Vector3(0f, 0f, -Time.deltaTime * 270f));
+            clownWheel.transform.Rotate(new Vector3(0f, 0f, -Time.deltaTime * 360f));
         else if (offset.x < 0)
-            clownWheel.transform.Rotate(new Vector3(0f, 0f, Time.deltaTime * 270f));
+            clownWheel.transform.Rotate(new Vector3(0f, 0f, Time.deltaTime * 360f));
 
         if (timeboost > 0)
         {
