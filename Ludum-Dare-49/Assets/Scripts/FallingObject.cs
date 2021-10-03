@@ -20,6 +20,10 @@ public class FallingObject : MonoBehaviour
 			if (GetComponent<Bomb>())
 				GetComponent<Bomb>().TriggerEffect2();
 
+			if (GetComponent<FallingShark>())
+				GetComponent<FallingShark>().TriggerEffect3();
+
+
 			// Add weights
 			if (collision.gameObject.name == "Bag1")
 			{
