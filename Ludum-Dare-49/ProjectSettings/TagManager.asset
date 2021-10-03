@@ -39,6 +39,12 @@ TagManager:
   - 
   - square / player
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 2249717909
+    locked: 0
+  - name: clown
+    uniqueID: 3360412489
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
