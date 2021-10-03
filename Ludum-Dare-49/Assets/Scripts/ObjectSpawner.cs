@@ -6,7 +6,7 @@ public class ObjectSpawner : MonoBehaviour
 {
     public GameObject[] ObjectPrefabs;
     public Transform ObjectsHolder;
-    private Vector2 spawnPos = new Vector2(0f, 3.5f);
+    private Vector3 spawnPos = new Vector3(0f, 3.5f, -2f);
     private float spawnerTimer = 0f;
     private int objectsPerSecond = 1;
 
@@ -21,7 +21,7 @@ public class ObjectSpawner : MonoBehaviour
 		{
             spawnerTimer = 0f;
             int r = Random.Range(0, ObjectPrefabs.Length);
-            Instantiate(ObjectPrefabs[r], spawnPos + new Vector2(Random.Range(-Bounds, Bounds), 0f), Quaternion.identity, ObjectsHolder);
+            Instantiate(ObjectPrefabs[r], spawnPos + new Vector3(Random.Range(-Bounds, Bounds), 0f), Quaternion.identity, ObjectsHolder);
 		}
     }
 

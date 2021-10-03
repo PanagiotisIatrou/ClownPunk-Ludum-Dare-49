@@ -80,9 +80,9 @@ public class BagMovement : MonoBehaviour
         if (vector.x + transform.position.x > -3f && vector.x + transform.position.x < 3f)
         {
             transform.position += vector;
-            LeftBagText.transform.position = transform.GetChild(0).position;
+            LeftBagText.transform.position = transform.GetChild(0).position + new Vector3(0f, 0.1f);
             LeftBagText.transform.position += Vector3.back;
-            RightBagText.transform.position = transform.GetChild(1).position;
+            RightBagText.transform.position = transform.GetChild(1).position + new Vector3(0f, 0.1f);
             RightBagText.transform.position += Vector3.back;
         }
     }
