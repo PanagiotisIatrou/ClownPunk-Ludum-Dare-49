@@ -41,7 +41,9 @@ public class ButtonListeners : MonoBehaviour
 		Menu.SetActive(false);
 		HowToPlay.SetActive(false);
 		Credits.SetActive(false);
-		gameOver.SetActive(false);
+		gameOver.SetActive(false); 
+		GameManager.Instance.changeRestart(true);
+		GameManager.Instance.changeIsPlaying(true);
 	}
 
 	public void MenuButton()
