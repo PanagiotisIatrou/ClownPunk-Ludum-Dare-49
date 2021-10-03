@@ -21,7 +21,8 @@ public class ObjectSpawner : MonoBehaviour
 		{
             spawnerTimer = 0f;
             int r = Random.Range(0, ObjectPrefabs.Length);
-            Instantiate(ObjectPrefabs[r], spawnPos + new Vector3(Random.Range(-Bounds, Bounds), 0f), Quaternion.identity, ObjectsHolder);
+            GameObject obj = Instantiate(ObjectPrefabs[r], spawnPos + new Vector3(Random.Range(-Bounds, Bounds), 0f), Quaternion.identity, ObjectsHolder);
+            obj.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-0.5f, 0.5f), ForceMode2D.Impulse);
 		}
     }
 

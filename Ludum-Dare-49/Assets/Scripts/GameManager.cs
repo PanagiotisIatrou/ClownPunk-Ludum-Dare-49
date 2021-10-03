@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public Sprite SharkRightSprite;
+    public Sprite SharkUpSprite;
+
     private int leftWeight;
     private int rightWeight;
 
