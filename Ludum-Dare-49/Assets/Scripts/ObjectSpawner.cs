@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    public GameObject ObjectPrefab;
+    public GameObject[] ObjectPrefabs;
     public Transform ObjectsHolder;
     private Vector2 spawnPos = new Vector2(0f, 3.5f);
     private float spawnerTimer = 0f;
@@ -17,7 +17,8 @@ public class ObjectSpawner : MonoBehaviour
         if (spawnerTimer >= 1f / objectsPerSecond)
 		{
             spawnerTimer = 0f;
-            Instantiate(ObjectPrefab, spawnPos + new Vector2(Random.Range(-Bounds, Bounds), 0f), Quaternion.identity, ObjectsHolder);
+            int r = Random.Range(0, ObjectPrefabs.Length);
+            Instantiate(ObjectPrefabs[r], spawnPos + new Vector2(Random.Range(-Bounds, Bounds), 0f), Quaternion.identity, ObjectsHolder);
 		}
     }
 
