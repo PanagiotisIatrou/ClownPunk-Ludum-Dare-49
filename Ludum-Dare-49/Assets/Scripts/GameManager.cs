@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
     public GameObject Credits;
     public GameObject gameOver;
 
-    private float timeToSet = 0.5f;
+    private float timeToSet = 0.2f;
     private IEnumerator coroutine;
     public Volume effects;
     private IEnumerator GameOverEffectOn()
@@ -149,9 +149,10 @@ public class GameManager : MonoBehaviour
         }
         vignette.intensity.value = 0f;
     }
-
+    private bool flage = false;
     public void GameOver()
     {
+        flage = true;
         isPlaying = false;
         Restart();
         if (coroutine != null)
@@ -162,5 +163,16 @@ public class GameManager : MonoBehaviour
         HowToPlay.SetActive(false);
         Credits.SetActive(false);
         gameOver.SetActive(true);
+    }
+    public void StopTheSpecialEffect()
+    {
+        if (!flage)
+            return;
+        flage = false;
+        if (coroutine != null)
+            StopCoroutine(coroutine);
+        StartCoroutine(GameOverEffectOff());
+        if (coroutine != null)
+            StopCoroutine(coroutine);
     }
 }

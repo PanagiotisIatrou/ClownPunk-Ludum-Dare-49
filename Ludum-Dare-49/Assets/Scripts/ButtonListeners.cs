@@ -37,7 +37,6 @@ public class ButtonListeners : MonoBehaviour
 
 	public void PlayButton()
 	{
-
 		Play.SetActive(true);
 		Menu.SetActive(false);
 		HowToPlay.SetActive(false);
@@ -45,6 +44,7 @@ public class ButtonListeners : MonoBehaviour
 		gameOver.SetActive(false); 
 		GameManager.Instance.Restart();
 		GameManager.Instance.changeIsPlaying(true);
+		GameManager.Instance.StopTheSpecialEffect();
 	}
 
 	public void MenuButton()
@@ -54,6 +54,7 @@ public class ButtonListeners : MonoBehaviour
 		HowToPlay.SetActive(false);
 		Credits.SetActive(false);
 		gameOver.SetActive(false);
+		GameManager.Instance.StopTheSpecialEffect();
 	}
 
 	public void HowToPlayButton()
@@ -63,6 +64,7 @@ public class ButtonListeners : MonoBehaviour
 		HowToPlay.SetActive(true);
 		Credits.SetActive(false);
 		gameOver.SetActive(false);
+		GameManager.Instance.StopTheSpecialEffect();
 	}
 
 	public void CreditsButton()
@@ -72,6 +74,7 @@ public class ButtonListeners : MonoBehaviour
 		HowToPlay.SetActive(false);
 		Credits.SetActive(true);
 		gameOver.SetActive(false);
+		GameManager.Instance.StopTheSpecialEffect();
 	}
 
 }
