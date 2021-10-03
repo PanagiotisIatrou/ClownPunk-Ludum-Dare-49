@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
     private int rightWeight;
     private IEnumerator coroutine;
 
-    private bool restart = false;
     private bool isPlaying = false;
 
     // Start is called before the first frame update
@@ -43,17 +42,6 @@ public class GameManager : MonoBehaviour
     {
         return isPlaying;
     }
-
-    public bool getRestart()
-    {
-        return restart;
-    }
-
-    public void changeRestart(bool newRestart)
-    {
-        restart = newRestart;
-    }
-
 
     public void changeIsPlaying(bool newIsPlaying)
     {
@@ -106,7 +94,7 @@ public class GameManager : MonoBehaviour
     public GameObject airManager;
     public GameObject bagMovement;
 
-    private void Restart()
+    public void Restart()
     {
         text.GetComponent<TextManager>().Restart();
         objectSpawner.GetComponent<ObjectSpawner>().Restart();

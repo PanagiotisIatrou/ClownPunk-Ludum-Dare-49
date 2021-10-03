@@ -42,7 +42,7 @@ public class ButtonListeners : MonoBehaviour
 		HowToPlay.SetActive(false);
 		Credits.SetActive(false);
 		gameOver.SetActive(false); 
-		GameManager.Instance.changeRestart(true);
+		GameManager.Instance.Restart();
 		GameManager.Instance.changeIsPlaying(true);
 	}
 
