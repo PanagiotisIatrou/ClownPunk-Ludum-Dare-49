@@ -23,12 +23,45 @@ public class GameManager : MonoBehaviour
     private int leftWeight;
     private int rightWeight;
 
+    private bool restart = false;
+    private bool isPlaying = false;
 
     // Start is called before the first frame update
     void Start()
     {
         leftWeight = 0;
         rightWeight = 0;
+    }
+    void Update()
+    {
+        if (isPlaying)
+        {
+            if (restart)
+            {
+                leftWeight = 0;
+                rightWeight = 0;
+            }
+        }
+    }
+
+    public bool getIsPlaying()
+    {
+        return isPlaying;
+    }
+
+    public bool getRestart()
+    {
+        return restart;
+    }
+
+    public void changeRestart(bool newRestart)
+    {
+        restart = newRestart;
+    }
+
+    public void changeIsPlaying(bool newIsPlaying)
+    {
+        isPlaying = newIsPlaying;
     }
 
     public int getLeftWeight()
