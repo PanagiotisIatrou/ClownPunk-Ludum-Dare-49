@@ -24,10 +24,13 @@ public class AirManager : MonoBehaviour
 
     public void StartAirLeft()
     {
+        if(coroutine != null)
+            StopCoroutine(coroutine);
         coroutine = Left(0.5f);
+        StartCoroutine(coroutine);
     }
 
-    private IEnumerator Left(float waitTime)
+    private IEnumerator Right(float waitTime)
     {
         AreaEffector2D air = Air.GetComponent<AreaEffector2D>();
         while (air.forceMagnitude < 2f)
@@ -40,10 +43,21 @@ public class AirManager : MonoBehaviour
 
     public void StartAirRight()
     {
-        while (Air.GetComponent<AreaEffector2D>().forceMagnitude > -2f)
+        if (coroutine != null)
+            StopCoroutine(coroutine);
+        coroutine = Right(0.5f);
+        StartCoroutine(coroutine);
+    }
+
+    public IEnumerator Left(float waitTime)
+    {
+        AreaEffector2D air = Air.GetComponent<AreaEffector2D>();
+        while (air.forceMagnitude < 2f)
         {
-            Air.GetComponent<AreaEffector2D>().forceMagnitude -= Time.deltaTime;
+            air.forceMagnitude -= Time.deltaTime / waitTime;
+            yield return null;
         }
+        air.forceMagnitude = 2f;
     }
 
     public void StartAirRandomly()
