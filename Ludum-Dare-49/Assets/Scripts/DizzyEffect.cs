@@ -22,7 +22,6 @@ public class DizzyEffect : MonoBehaviour
 
 	}
 	public Volume dizzyEffectVolume;
-	public Volume vignetteEffectVolume;
 	private Coroutine currentCoroutine;
 	private ColorAdjustments colorAdjs;
 
