@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8560963879257622078}
   - component: {fileID: 2066392345952434131}
   - component: {fileID: 928504583845461019}
+  - component: {fileID: 2469536923485979706}
   m_Layer: 0
   m_Name: ScissorsPrefab
   m_TagString: Untagged
@@ -162,3 +163,15 @@ PolygonCollider2D:
       - {x: -0.1499354, y: -0.26869848}
       - {x: -0.08545366, y: -0.102829725}
       - {x: 0.3493915, y: -0.09441945}
+--- !u!114 &2469536923485979706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928504583845461023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d20d1ed9ccbf1a4f929caec7dd1c280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
