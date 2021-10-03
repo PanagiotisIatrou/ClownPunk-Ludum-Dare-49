@@ -8,7 +8,7 @@ public class CloudSpanwer : MonoBehaviour
     public Transform CloudsHolder;
     private float cloudTimer = 5f;
     private float maxCloudTimer = 5;
-    private Vector2 spawnBoundsY = new Vector2(0f, 4f);
+    private Vector2 spawnBoundsY = new Vector2(2.5f, 4f);
 
     private void Update()
     {
