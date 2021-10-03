@@ -22,16 +22,27 @@ public class TextManager : MonoBehaviour
 
     // begin for point changing
     public TextMeshProUGUI TimeToChangeControls;
+    
     public TextMeshProUGUI leftText;
     public TextMeshProUGUI rightText;
     public int timeLeftToChange = 0;
 
     public TextMeshProUGUI Scoreboard;
-    public int ScoreCounter;
+    public TextMeshProUGUI GameOverScore;
+    public TextMeshProUGUI HighScoreText;
+    private int ScoreCounter;
+    private int HighScore = 0;
+
     public void UpdateScore(int addScore)
     {
         ScoreCounter += addScore;
+        if (HighScore < ScoreCounter)
+        {
+            HighScore = ScoreCounter;
+        }
         Scoreboard.text = "Score: " + ScoreCounter.ToString();
+        GameOverScore.text = "Score: " + ScoreCounter.ToString();
+        HighScoreText.text = "High Score: " + HighScore.ToString();
     }
     void Update()
     {

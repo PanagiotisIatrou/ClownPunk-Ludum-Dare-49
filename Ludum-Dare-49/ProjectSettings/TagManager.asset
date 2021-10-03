@@ -37,8 +37,17 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - square / player
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Spotlight
+    uniqueID: 4123317387
+    locked: 0
+  - name: Player
+    uniqueID: 1527638239
+    locked: 0
+  - name: Canvas
+    uniqueID: 1041180423
     locked: 0

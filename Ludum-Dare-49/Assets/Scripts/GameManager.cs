@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
 
     private int leftWeight;
     private int rightWeight;
-      
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,9 +46,12 @@ public class GameManager : MonoBehaviour
     {
         leftWeight += theNewPoints;
         TextManager.Instance.UpdateLeftWeight(leftWeight);
+
+        checkForFlickering();
+
         if (leftWeight >= rightWeight + 3)
         {
-            Debug.Log("GAME OVER");
+            ButtonListeners.Instance.GameOver();
         }
     }
 
@@ -57,9 +61,31 @@ public class GameManager : MonoBehaviour
     {
         rightWeight += theNewPoints;
         TextManager.Instance.UpdateRightWeight(rightWeight);
+
+        checkForFlickering();
+
         if (rightWeight >= leftWeight + 3)
         {
-            Debug.Log("GAME OVER");
+            ButtonListeners.Instance.GameOver();
+        }
+    }
+
+    private void checkForFlickering(){
+         if (leftWeight >= rightWeight + 1)
+        {
+            LightManager.Instance.flickeringOff();
+        }
+        if (leftWeight == rightWeight + 2)
+        {
+            LightManager.Instance.flickeringOn();
+        }
+        if (rightWeight >= leftWeight + 1)
+        {
+            LightManager.Instance.flickeringOff();
+        }
+        if (rightWeight == leftWeight + 2)
+        {
+            LightManager.Instance.flickeringOn();
         }
     }
 

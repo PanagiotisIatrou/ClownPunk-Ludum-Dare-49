@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpotlightRight : MonoBehaviour
+public class SpotlightLeft : MonoBehaviour
 {
     //public GameObject light;
-    float smooth = 10f;
-    float tiltAroundZ = -45f;
-    float targetRotation = 0f;
+    private float smooth = 10f;
+    private float tiltAroundZ = -45f;
+    private float targetRotation = -90f;
+    private float counter = 0f;
 
     // Update is called once per frame
     void Update()
@@ -34,7 +35,9 @@ public class SpotlightRight : MonoBehaviour
         Quaternion target = Quaternion.Euler(0, 0, tiltAroundZ);
 
         // Dampen towards the target rotation
-        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
+        if (PauseManager.IsPaused()==false)
+            counter += Time.deltaTime;
+        transform.rotation = Quaternion.Slerp(transform.rotation, target, counter * smooth);
 
     }
 }
