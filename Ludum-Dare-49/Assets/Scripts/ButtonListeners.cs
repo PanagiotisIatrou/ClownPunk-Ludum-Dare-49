@@ -24,6 +24,8 @@ public class ButtonListeners : MonoBehaviour
 	public GameObject HowToPlay;
 	public GameObject Credits;
 	public GameObject gameOver;
+
+	private bool hasPressedPowerButton = false;
 	
 	public void OnPauseButtonListener()
 	{
@@ -75,6 +77,15 @@ public class ButtonListeners : MonoBehaviour
 		Credits.SetActive(true);
 		gameOver.SetActive(false);
 		GameManager.Instance.StopTheSpecialEffect();
+	}
+
+	public void OnStartButtonListener()
+	{
+		if (!hasPressedPowerButton)
+		{
+			Starting.Instance.PressButton();
+			hasPressedPowerButton = true;
+		}
 	}
 
 }
