@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class ButtonListeners : MonoBehaviour
 {
@@ -39,8 +40,7 @@ public class ButtonListeners : MonoBehaviour
 	public Image MusicButtonImage;
 
 	private bool isPowerOn = false;
-	private bool hasPressedPowerButton = false;
-	private int currentChannel = 1;
+	public static int currentChannel = 1;
 	private Camera mainCamera;
 
 	private bool isHelpOn = false;

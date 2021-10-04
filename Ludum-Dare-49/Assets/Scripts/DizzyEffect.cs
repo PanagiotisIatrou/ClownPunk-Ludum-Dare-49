@@ -21,6 +21,7 @@ public class DizzyEffect : MonoBehaviour
 		}
 
 	}
+
 	public Volume dizzyEffectVolume;
 	private Coroutine currentCoroutine;
 	private ColorAdjustments colorAdjs;
@@ -48,6 +49,9 @@ public class DizzyEffect : MonoBehaviour
 
 	public void GetDizzyForSeconds(float secondsPerCycle, int cycles)
 	{
+		if (ButtonListeners.currentChannel == 2)
+			return;
+
 		if (currentCoroutine != null)
 			StopCoroutine(currentCoroutine);
 		currentCoroutine = StartCoroutine(getDizzyForSeconds(secondsPerCycle, cycles));

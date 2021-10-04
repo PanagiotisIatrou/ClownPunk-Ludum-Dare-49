@@ -64,6 +64,9 @@ public class SlowDownEffect : MonoBehaviour
 
     public void SlowDown()
 	{
+        if (ButtonListeners.currentChannel == 2)
+            return;
+
         if (coroutine != null)
             StopCoroutine(coroutine);
         StartCoroutine(slowDown());
@@ -71,6 +74,9 @@ public class SlowDownEffect : MonoBehaviour
 
     public void UnSlowDown()
     {
+        if (ButtonListeners.currentChannel == 2)
+            return;
+
         if (coroutine != null)
             StopCoroutine(coroutine);
         StartCoroutine(unSlowDown());
@@ -78,6 +84,9 @@ public class SlowDownEffect : MonoBehaviour
 
     public void SlowDownForSeconds(float time)
 	{
+        if (ButtonListeners.currentChannel == 2)
+            return;
+
         if (coroutine != null)
             StopCoroutine(coroutine);
         StartCoroutine(slowDownForSeconds(time));
