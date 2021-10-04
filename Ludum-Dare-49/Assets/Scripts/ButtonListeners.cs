@@ -66,7 +66,7 @@ public class ButtonListeners : MonoBehaviour
 
 	public void OnPauseButtonListener()
 	{
-		if (!isPowerOn)
+		if (!isPowerOn || !GameManager.Instance.getIsPlaying())
 			return;
 
 		if (currentChannel != 1)
