@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     public AudioClip ItemInWaterSound;
     public AudioClip BombInWaterSound;
     public AudioClip GameOverSound;
+    public AudioClip ExplosionSound;
 
     private int leftWeight;
     private int rightWeight;

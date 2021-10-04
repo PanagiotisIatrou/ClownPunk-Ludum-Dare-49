@@ -25,7 +25,10 @@ public class FallingObject : MonoBehaviour
 			if (GetComponent<Hourglass>())
 				GetComponent<Hourglass>().TriggerEffect();
 			else if (GetComponent<Bomb>())
+			{
 				GetComponent<Bomb>().TriggerEffect();
+				AudioSource.PlayClipAtPoint(GameManager.Instance.ExplosionSound, mainCamera.transform.position, 0.5f);
+			}
 			else if (GetComponent<FallingShark>())
 				GetComponent<FallingShark>().TriggerEffect();
 			else if (GetComponent<Bottle>())

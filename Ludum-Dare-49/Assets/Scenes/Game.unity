@@ -3243,6 +3243,7 @@ MonoBehaviour:
   ItemInWaterSound: {fileID: 8300000, guid: 6ddf88e8dbedddf4b8f25d190d23fc55, type: 3}
   BombInWaterSound: {fileID: 8300000, guid: 9995384a3932d4d48bee697867a696ac, type: 3}
   GameOverSound: {fileID: 8300000, guid: d7173f07724ae8b4faf8eae80d91e4c5, type: 3}
+  ExplosionSound: {fileID: 8300000, guid: 8649a90f8d36bfb46a384db9d4e3dd3c, type: 3}
 --- !u!4 &873424654
 Transform:
   m_ObjectHideFlags: 0
