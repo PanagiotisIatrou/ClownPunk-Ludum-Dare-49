@@ -50,6 +50,10 @@ public class GameManager : MonoBehaviour
     public AudioClip BombInWaterSound;
     public AudioClip GameOverSound;
     public AudioClip ExplosionSound;
+    public Sprite AudioOffSprite;
+    public Sprite AudioOnSprite;
+    public Sprite MusicOffSprite;
+    public Sprite MusicOnSprite;
 
     private int leftWeight;
     private int rightWeight;

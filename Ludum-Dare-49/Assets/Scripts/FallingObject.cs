@@ -16,7 +16,8 @@ public class FallingObject : MonoBehaviour
 	{
 		if (collision.transform.CompareTag("Bag"))
 		{
-			AudioSource.PlayClipAtPoint(GameManager.Instance.ItemInBasketSound, mainCamera.transform.position, 1f);
+			if (!ButtonListeners.isAudioMuted)
+				AudioSource.PlayClipAtPoint(GameManager.Instance.ItemInBasketSound, mainCamera.transform.position, 1f);
 
 			// Fade out
 			GetComponent<SpriteFader>().FadeOut();
@@ -27,7 +28,8 @@ public class FallingObject : MonoBehaviour
 			else if (GetComponent<Bomb>())
 			{
 				GetComponent<Bomb>().TriggerEffect();
-				AudioSource.PlayClipAtPoint(GameManager.Instance.ExplosionSound, mainCamera.transform.position, 0.5f);
+				if (!ButtonListeners.isAudioMuted)
+					AudioSource.PlayClipAtPoint(GameManager.Instance.ExplosionSound, mainCamera.transform.position, 0.5f);
 			}
 			else if (GetComponent<FallingShark>())
 				GetComponent<FallingShark>().TriggerEffect();
@@ -48,7 +50,8 @@ public class FallingObject : MonoBehaviour
 		}
 		else if (collision.transform.name == "Ground")
 		{
-			AudioSource.PlayClipAtPoint(GameManager.Instance.ItemInWaterSound, mainCamera.transform.position, 0.5f);
+			if (!ButtonListeners.isAudioMuted)
+				AudioSource.PlayClipAtPoint(GameManager.Instance.ItemInWaterSound, mainCamera.transform.position, 0.5f);
 			if (GetComponent<Scissors>() != null)
 				GetComponent<Scissors>().TriggerEffect();
 			// Fade out

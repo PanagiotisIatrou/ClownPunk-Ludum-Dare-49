@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class ButtonListeners : MonoBehaviour
 {
@@ -25,11 +27,16 @@ public class ButtonListeners : MonoBehaviour
 	public GameObject Credits;
 	public GameObject gameOver;
 
-	public GameObject Channel2Panel;
+	public GameObject VideoPlayerGO;
+	private VideoPlayer videoPlayer;
+	private RawImage videoImage;
 	public AudioSource theme;
 	public GameObject BlackerImage;
 	public GameObject StaticGO;
 	public AudioSource StaticAudio;
+
+	public Image AudioButtonImage;
+	public Image MusicButtonImage;
 
 	private bool isPowerOn = false;
 	private bool hasPressedPowerButton = false;
@@ -38,11 +45,18 @@ public class ButtonListeners : MonoBehaviour
 
 	private bool isHelpOn = false;
 
+	private bool isMusicMuted = false;
+	public static bool isAudioMuted = false;
+
 	private Coroutine currentCoroutine;
 
 	private void Start()
 	{
 		mainCamera = Camera.main;
+		videoImage = VideoPlayerGO.GetComponent<RawImage>();
+		videoPlayer = VideoPlayerGO.GetComponent<VideoPlayer>();
+		videoPlayer.Prepare();
+		videoPlayer.frame = 0;
 	}
 
 	public void OnPowerButtonListener()
@@ -69,10 +83,12 @@ public class ButtonListeners : MonoBehaviour
 			isPowerOn = false;
 			BlackerImage.SetActive(true);
 			theme.Stop();
-			Channel2Panel.SetActive(false);
+			videoImage.enabled = false;
+			videoPlayer.Stop();
 		}
 
-		AudioSource.PlayClipAtPoint(GameManager.Instance.TVOpenSound, mainCamera.transform.position, 0.5f);
+		if (!isAudioMuted)
+			AudioSource.PlayClipAtPoint(GameManager.Instance.TVOpenSound, mainCamera.transform.position, 0.5f);
 	}
 
 	public void OnPauseButtonListener()
@@ -165,21 +181,6 @@ public class ButtonListeners : MonoBehaviour
 		GameManager.Instance.StopTheSpecialEffect();
 	}
 
-	public void OnStartButtonListener()
-	{
-		if (!isPowerOn)
-			return;
-
-		if (currentChannel != 1)
-			return;
-
-		if (!hasPressedPowerButton)
-		{
-			Starting.Instance.PressButton();
-			hasPressedPowerButton = true;
-		}
-	}
-
 	public void OnChangeChannelButtonListener()
 	{
 		if (!isPowerOn)
@@ -201,9 +202,40 @@ public class ButtonListeners : MonoBehaviour
 		}
 	}
 
+	public void OnMuteMusicButtonListener()
+	{
+		isMusicMuted = !isMusicMuted;
+		if (isMusicMuted)
+		{
+			theme.volume = 0f;
+			MusicButtonImage.sprite = GameManager.Instance.MusicOffSprite;
+		}
+		else
+		{
+			theme.volume = 0.5f;
+			MusicButtonImage.sprite = GameManager.Instance.MusicOnSprite;
+		}
+	}
+
+	public void OnSFXMusicButtonListener()
+	{
+		isAudioMuted = !isAudioMuted;
+		if (isAudioMuted)
+		{
+			AudioButtonImage.sprite = GameManager.Instance.AudioOffSprite;
+			StaticAudio.volume = 0f;
+		}
+		else
+		{
+			AudioButtonImage.sprite = GameManager.Instance.AudioOnSprite;
+			StaticAudio.volume = 1f;
+		}
+	}
+
 	private IEnumerator OpenChannel1()
 	{
-		Channel2Panel.SetActive(false);
+		videoImage.enabled = false;
+		videoPlayer.Stop();
 		StaticGO.SetActive(true);
 		StaticAudio.Play();
 		yield return new WaitForSeconds(0.5f);
@@ -214,12 +246,17 @@ public class ButtonListeners : MonoBehaviour
 
 	private IEnumerator OpenChannel2()
 	{
+		if (PauseManager.IsPaused())
+			PauseManager.UnPause();
+
 		StaticGO.SetActive(true);
 		StaticAudio.Play();
 		theme.Stop();
 		yield return new WaitForSeconds(0.5f);
+		videoPlayer.frame = 0;
+		videoImage.enabled = true;
+		videoPlayer.Play();
 		StaticGO.SetActive(false);
 		StaticAudio.Stop();
-		Channel2Panel.SetActive(true);
 	}
 }

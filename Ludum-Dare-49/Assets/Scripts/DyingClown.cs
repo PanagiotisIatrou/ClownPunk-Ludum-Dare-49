@@ -15,8 +15,10 @@ public class DyingClown : MonoBehaviour
 	{
 		if (collision.name == "pool")
 		{
-			AudioSource.PlayClipAtPoint(GameManager.Instance.BombInWaterSound, mainCamera.transform.position, 0.5f);
-			AudioSource.PlayClipAtPoint(GameManager.Instance.GameOverSound, mainCamera.transform.position, 0.5f);
+			if (!ButtonListeners.isAudioMuted)
+				AudioSource.PlayClipAtPoint(GameManager.Instance.BombInWaterSound, mainCamera.transform.position, 0.5f);
+			if (!ButtonListeners.isAudioMuted)
+				AudioSource.PlayClipAtPoint(GameManager.Instance.GameOverSound, mainCamera.transform.position, 0.5f);
 			Vector3 spawnPos = new Vector3(transform.parent.position.x, -3.47f, -2.5f);
 			Instantiate(GameManager.Instance.ClownSharkPrefab, spawnPos, Quaternion.identity);
 			Destroy(transform.parent.gameObject);

@@ -14,11 +14,13 @@ public class ButtonSounds : MonoBehaviour, IPointerEnterHandler, IPointerDownHan
 
     public void OnPointerEnter(PointerEventData ped)
     {
-		AudioSource.PlayClipAtPoint(GameManager.Instance.HoverSound, mainCamera.transform.position, 0.5f);
+        if (!ButtonListeners.isAudioMuted)
+            AudioSource.PlayClipAtPoint(GameManager.Instance.HoverSound, mainCamera.transform.position, 0.5f);
     }
 
     public void OnPointerDown(PointerEventData ped)
     {
-        AudioSource.PlayClipAtPoint(GameManager.Instance.ClickSound, mainCamera.transform.position, 0.5f);
+        if (!ButtonListeners.isAudioMuted)
+            AudioSource.PlayClipAtPoint(GameManager.Instance.ClickSound, mainCamera.transform.position, 0.5f);
     }
 }

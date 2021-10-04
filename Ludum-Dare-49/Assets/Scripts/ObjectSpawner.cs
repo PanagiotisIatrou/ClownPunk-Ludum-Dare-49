@@ -30,7 +30,8 @@ public class ObjectSpawner : MonoBehaviour
             GameObject obj = Instantiate(ObjectPrefabs[r], spawnPos, Quaternion.identity, ObjectsHolder);
             obj.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-0.5f, 0.5f), ForceMode2D.Impulse);
 
-            AudioSource.PlayClipAtPoint(GameManager.Instance.ItemThrowSound, mainCamera.transform.position, 0.5f);
+            if (!ButtonListeners.isAudioMuted)
+                AudioSource.PlayClipAtPoint(GameManager.Instance.ItemThrowSound, mainCamera.transform.position, 0.5f);
         }
     }
 
