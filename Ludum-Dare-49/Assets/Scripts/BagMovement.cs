@@ -77,14 +77,13 @@ public class BagMovement : MonoBehaviour
         if (!GameManager.Instance.getIsPlaying())
             return;
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if ((Input.GetKey(KeyCode.LeftArrow) && ! isInvertOn) || (Input.GetKey(KeyCode.RightArrow) && isInvertOn))
 		{
             wheelCenterRB.AddForceAtPosition(Vector2.left * 250f * Time.fixedDeltaTime, wheelCenterRB.position);
             wheelCenterRB.AddForceAtPosition(Vector2.left * 250f * Time.fixedDeltaTime, wheelCenterRB.position + Vector2.up);
             wheelCenterRB.AddTorque(150f * Time.fixedDeltaTime);
-
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if ((Input.GetKey(KeyCode.RightArrow) && !isInvertOn) || (Input.GetKey(KeyCode.LeftArrow) && isInvertOn))
 		{
             wheelCenterRB.AddForceAtPosition(Vector2.right * 250f * Time.fixedDeltaTime, wheelCenterRB.position);
             wheelCenterRB.AddForceAtPosition(Vector2.right * 250f * Time.fixedDeltaTime, wheelCenterRB.position + Vector2.up);
