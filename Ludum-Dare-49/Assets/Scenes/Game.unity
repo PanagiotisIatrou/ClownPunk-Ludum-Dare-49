@@ -1183,7 +1183,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bag1: {fileID: 832810339}
   bag2: {fileID: 501411652}
-  Hinge: {fileID: 0}
 --- !u!114 &221108303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2541,7 +2540,6 @@ MonoBehaviour:
   - {fileID: 5025217178158425326, guid: 376d0f896d8773b46a50bb79456db365, type: 3}
   - {fileID: 1407400930271874196, guid: 18253b74024872648ba5df475179b02f, type: 3}
   - {fileID: 3955966882587575409, guid: 3c294b385731aca4a949870879e8ba14, type: 3}
-  - {fileID: 928504583845461023, guid: 5af7a9c914e99e147bc0fc00550941b0, type: 3}
   - {fileID: 4923203718570305208, guid: 217ea35ebebe6c0439fef0fd94b80557, type: 3}
   - {fileID: 2616471382008343265, guid: 824fa31613f93af4cbc344c18f158903, type: 3}
   ObjectsHolder: {fileID: 2016018399}
