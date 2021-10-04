@@ -94,6 +94,14 @@ public class BagMovement : MonoBehaviour
             wheelCenterRB.velocity = wheelCenterRB.velocity.normalized * 3f;
 
         float angle = wheelCenterRB.transform.rotation.eulerAngles.z;
+
+        // Clown has fallen
+        if ((angle > 70f && angle <= 180f) || (angle > 180f && angle < 290f))
+		{
+            GameManager.Instance.GameOver();
+		}
+
+        // Help clown auto adjust angle
         if (angle > 270f && angle < 360f)
             wheelCenterRB.AddTorque(200f * Time.fixedDeltaTime);
         else if (angle > 0f && angle < 90f)

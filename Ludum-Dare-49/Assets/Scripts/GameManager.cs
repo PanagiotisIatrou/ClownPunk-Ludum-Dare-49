@@ -132,6 +132,8 @@ public class GameManager : MonoBehaviour
     private float timeToSet = 0.2f;
     private IEnumerator coroutine;
     public Volume effects;
+    public GameObject ClownSharkPrefab;
+
     private IEnumerator GameOverEffectOn()
     {
         Vignette vignette = (Vignette)effects.profile.components[0];
@@ -153,11 +155,14 @@ public class GameManager : MonoBehaviour
         }
         vignette.intensity.value = 0f;
     }
+
     private bool flage = false;
+
     public void GameOver()
     {
         flage = true;
         isPlaying = false;
+        Destroy(BagMovementScript.transform.GetChild(2).GetComponent<CapsuleCollider2D>());
         Restart();
         if (coroutine != null)
             StopCoroutine(coroutine);
@@ -168,6 +173,7 @@ public class GameManager : MonoBehaviour
         Credits.SetActive(false);
         gameOver.SetActive(true);
     }
+
     public void StopTheSpecialEffect()
     {
         if (!flage)
