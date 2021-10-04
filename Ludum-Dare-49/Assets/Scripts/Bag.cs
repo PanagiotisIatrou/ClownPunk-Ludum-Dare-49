@@ -8,7 +8,7 @@ public class Bag : MonoBehaviour
 
 	private void Update()
 	{
-		transform.position = hand.position;
+		//transform.position = hand.position;
 		transform.rotation = Quaternion.identity;
 	}
 }
