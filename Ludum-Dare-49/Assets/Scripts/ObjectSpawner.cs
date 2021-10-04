@@ -7,13 +7,16 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject[] ObjectPrefabs;
     public Transform ObjectsHolder;
     public Transform FrogTR;
-    //private Vector3 spawnPos = new Vector3(0f, 3.5f, -2f);
     private float spawnerTimer = 0f;
     private int objectsPerSecond = 1;
+    private Camera mainCamera;
 
-    //private float Bounds = 1.8f;
+	private void Start()
+	{
+        mainCamera = Camera.main;
+	}
 
-    private void Update()
+	private void Update()
     {
         if (GameManager.Instance.getIsPlaying() == false)
             return;
@@ -26,7 +29,9 @@ public class ObjectSpawner : MonoBehaviour
             Vector3 spawnPos = new Vector3(FrogTR.position.x, FrogTR.position.y, -2f);
             GameObject obj = Instantiate(ObjectPrefabs[r], spawnPos, Quaternion.identity, ObjectsHolder);
             obj.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-0.5f, 0.5f), ForceMode2D.Impulse);
-		}
+
+            AudioSource.PlayClipAtPoint(GameManager.Instance.ItemThrowSound, mainCamera.transform.position, 0.5f);
+        }
     }
 
     public void Restart()

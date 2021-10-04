@@ -29,12 +29,19 @@ public class ButtonListeners : MonoBehaviour
 	public AudioSource theme;
 	public GameObject BlackerImage;
 	public GameObject StaticGO;
+	public AudioSource StaticAudio;
 
 	private bool isPowerOn = false;
 	private bool hasPressedPowerButton = false;
 	private int currentChannel = 1;
+	private Camera mainCamera;
 
 	private Coroutine currentCoroutine;
+
+	private void Start()
+	{
+		mainCamera = Camera.main;
+	}
 
 	public void OnPowerButtonListener()
 	{
@@ -62,6 +69,8 @@ public class ButtonListeners : MonoBehaviour
 			theme.Stop();
 			Channel2Panel.SetActive(false);
 		}
+
+		AudioSource.PlayClipAtPoint(GameManager.Instance.TVOpenSound, mainCamera.transform.position, 0.5f);
 	}
 
 	public void OnPauseButtonListener()
@@ -187,17 +196,21 @@ public class ButtonListeners : MonoBehaviour
 	{
 		Channel2Panel.SetActive(false);
 		StaticGO.SetActive(true);
+		StaticAudio.Play();
 		yield return new WaitForSeconds(0.5f);
 		StaticGO.SetActive(false);
+		StaticAudio.Stop();
 		theme.Play();
 	}
 
 	private IEnumerator OpenChannel2()
 	{
 		StaticGO.SetActive(true);
+		StaticAudio.Play();
 		theme.Stop();
 		yield return new WaitForSeconds(0.5f);
 		StaticGO.SetActive(false);
+		StaticAudio.Stop();
 		Channel2Panel.SetActive(true);
 	}
 }

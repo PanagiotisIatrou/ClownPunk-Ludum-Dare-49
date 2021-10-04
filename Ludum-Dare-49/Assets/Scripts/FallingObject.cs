@@ -5,11 +5,19 @@ using UnityEngine;
 public class FallingObject : MonoBehaviour
 {
 	private int weight = 1;
+	private Camera mainCamera;
+
+	private void Start()
+	{
+		mainCamera = Camera.main;
+	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (collision.transform.CompareTag("Bag"))
 		{
+			AudioSource.PlayClipAtPoint(GameManager.Instance.ItemInBasketSound, mainCamera.transform.position, 1f);
+
 			// Fade out
 			GetComponent<SpriteFader>().FadeOut();
 
@@ -37,6 +45,7 @@ public class FallingObject : MonoBehaviour
 		}
 		else if (collision.transform.name == "Ground")
 		{
+			AudioSource.PlayClipAtPoint(GameManager.Instance.ItemInWaterSound, mainCamera.transform.position, 0.5f);
 			if (GetComponent<Scissors>() != null)
 				GetComponent<Scissors>().TriggerEffect();
 			// Fade out

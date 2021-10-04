@@ -40,6 +40,15 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI RightBagText;
     public Sprite ClownSprite;
     public Sprite ClownEyesSprite;
+    public AudioClip ItemInBasketSound;
+    public AudioClip ItemThrowSound;
+    public AudioClip ClickSound;
+    public AudioClip HoverSound;
+    public AudioClip StaticSound;
+    public AudioClip TVOpenSound;
+    public AudioClip ItemInWaterSound;
+    public AudioClip BombInWaterSound;
+    public AudioClip GameOverSound;
 
     private int leftWeight;
     private int rightWeight;
