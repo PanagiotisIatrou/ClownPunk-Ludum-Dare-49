@@ -97,7 +97,6 @@ public class BagMovement : MonoBehaviour
             wheelCenterRB.velocity = wheelCenterRB.velocity.normalized * 3f;
 
         float angle = wheelCenterRB.transform.rotation.eulerAngles.z;
-        Debug.Log(angle);
         if (angle > 270f && angle < 360f)
             wheelCenterRB.AddTorque(200f * Time.fixedDeltaTime);
         else if (angle > 0f && angle < 90f)

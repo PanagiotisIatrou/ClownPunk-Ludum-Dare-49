@@ -29,12 +29,10 @@ public class ButtonListeners : MonoBehaviour
 	
 	public void OnPauseButtonListener()
 	{
-		PauseManager.Pause();
-	}
-
-	public void OnUnPauseButtonListener()
-	{
-		PauseManager.UnPause();
+		if (!PauseManager.IsPaused())
+			PauseManager.Pause();
+		else
+			PauseManager.UnPause();
 	}
 
 	public void PlayButton()
