@@ -74,7 +74,10 @@ public class BagMovement : MonoBehaviour
 
     private void FixedUpdate()
 	{
-		if (Input.GetKey(KeyCode.LeftArrow))
+        if (!GameManager.Instance.getIsPlaying())
+            return;
+
+        if (Input.GetKey(KeyCode.LeftArrow))
 		{
             wheelCenterRB.AddForceAtPosition(Vector2.left * 250f * Time.fixedDeltaTime, wheelCenterRB.position);
             wheelCenterRB.AddForceAtPosition(Vector2.left * 250f * Time.fixedDeltaTime, wheelCenterRB.position + Vector2.up);
