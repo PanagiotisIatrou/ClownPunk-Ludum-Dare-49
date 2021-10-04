@@ -64,20 +64,15 @@ public class BagMovement : MonoBehaviour
         else if (offset.x < 0)
             clownWheel.transform.Rotate(new Vector3(0f, 0f, Time.deltaTime * 360f));
 
-        //
+        LeftBagText.transform.position = Bag1.position + new Vector3(0f, 0.1f);
+        LeftBagText.transform.position += Vector3.back;
+        RightBagText.transform.position = Bag2.position + new Vector3(0f, 0.1f);
+        RightBagText.transform.position += Vector3.back;
 
-        Vector3 vector = (Vector3)offset * speed * Time.deltaTime;
-        if (vector.x + transform.position.x > -3f && vector.x + transform.position.x < 3f)
-        {
-            //transform.position += vector;
-            LeftBagText.transform.position = Bag1.position + new Vector3(0f, 0.1f);
-            LeftBagText.transform.position += Vector3.back;
-            RightBagText.transform.position = Bag2.position + new Vector3(0f, 0.1f);
-            RightBagText.transform.position += Vector3.back;
-        }
+        wheelCenterRB.transform.position = new Vector3(Mathf.Clamp(wheelCenterRB.transform.position.x, -3f, 3f), wheelCenterRB.transform.position.y, wheelCenterRB.transform.position.z);
     }
 
-	private void FixedUpdate()
+    private void FixedUpdate()
 	{
 		if (Input.GetKey(KeyCode.LeftArrow))
 		{
