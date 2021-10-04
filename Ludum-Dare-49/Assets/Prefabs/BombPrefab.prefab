@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -6723651823224350064}
   - component: {fileID: -409513415448093954}
   - component: {fileID: 372175237430926082}
+  - component: {fileID: 875261202}
   m_Layer: 0
   m_Name: BombPrefab
   m_TagString: Untagged
@@ -160,3 +161,22 @@ CircleCollider2D:
   m_Offset: {x: 0.031985402, y: -0.07525993}
   serializedVersion: 2
   m_Radius: 0.25952113
+--- !u!95 &875261202
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556553117027686579}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c250a8ac4db8209488922b4b2a8421ed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

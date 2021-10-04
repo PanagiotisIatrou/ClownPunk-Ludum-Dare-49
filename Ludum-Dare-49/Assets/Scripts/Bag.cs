@@ -4,19 +4,11 @@ using UnityEngine;
 
 public class Bag : MonoBehaviour
 {
-	public Transform HingeTR;
-	private Transform hinge;
-
-	private void Start()
-	{
-		if (transform.name == "Bag1")
-			hinge = HingeTR.GetChild(0);
-		else if (transform.name == "Bag2")
-			hinge = HingeTR.GetChild(1);
-	}
+	public Transform hand;
 
 	private void Update()
 	{
+		transform.position = hand.position;
 		transform.rotation = Quaternion.identity;
 	}
 }

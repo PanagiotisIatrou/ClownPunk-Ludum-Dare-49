@@ -7,6 +7,6 @@ public class Bomb : MonoBehaviour
     public void TriggerEffect()
     {
         GameManager.Instance.GameOver();
+        GetComponent<Animator>().SetTrigger("Trigger");
     }
-
 }
