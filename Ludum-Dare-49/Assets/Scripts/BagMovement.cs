@@ -6,16 +6,23 @@ using System;
 
 public class BagMovement : MonoBehaviour
 {
-    public TextMeshProUGUI LeftBagText;
-    public TextMeshProUGUI RightBagText;
     public Transform clownWheel;
     public Transform Bag1;
     public Transform Bag2;
     public Rigidbody2D wheelCenterRB;
+    private TextMeshProUGUI LeftBagText;
+    private TextMeshProUGUI RightBagText;
     private float speed = 5f;
     private bool isInvertOn = false;
     private float invertTimer = 0f;
     private float invertTimerMax = 2f;
+
+	private void Start()
+	{
+        LeftBagText = GameManager.Instance.LeftBagText;
+        RightBagText = GameManager.Instance.RightBagText;
+        GameManager.Instance.BagMovementScript = this;
+	}
 
 	public void Restart()
     {

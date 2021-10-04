@@ -63,7 +63,7 @@ public class ButtonListeners : MonoBehaviour
 			Channel2Panel.SetActive(false);
 		}
 	}
-	
+
 	public void OnPauseButtonListener()
 	{
 		if (!isPowerOn)
@@ -90,10 +90,13 @@ public class ButtonListeners : MonoBehaviour
 		Menu.SetActive(false);
 		HowToPlay.SetActive(false);
 		Credits.SetActive(false);
-		gameOver.SetActive(false); 
+		gameOver.SetActive(false);
 		GameManager.Instance.Restart();
 		GameManager.Instance.changeIsPlaying(true);
 		GameManager.Instance.StopTheSpecialEffect();
+
+		if (GameManager.Instance.BagMovementScript == null)
+			GameManager.Instance.SpawnClown();
 	}
 
 	public void MenuButton()
@@ -113,7 +116,7 @@ public class ButtonListeners : MonoBehaviour
 	}
 
 	public void HowToPlayButton()
-    {
+	{
 		if (!isPowerOn)
 			return;
 

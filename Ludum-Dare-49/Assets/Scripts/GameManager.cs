@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,19 +25,33 @@ public class GameManager : MonoBehaviour
     public Sprite SharkRightSprite;
     public Sprite SharkUpSprite;
     public BagMovement BagMovementScript;
+    public GameObject text;
+    public GameObject objectSpawner;
+    public GameObject airManager;
+    public GameObject Play;
+    public GameObject Menu;
+    public GameObject HowToPlay;
+    public GameObject Credits;
+    public GameObject gameOver;
+    public Volume effects;
+    public GameObject ClownSharkPrefab;
+    public GameObject ClownPrefab;
+    public TextMeshProUGUI LeftBagText;
+    public TextMeshProUGUI RightBagText;
 
     private int leftWeight;
     private int rightWeight;
-
     private bool isPlaying = false;
+    private float timeToSet = 0.2f;
+    private IEnumerator coroutine;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         leftWeight = 0;
         rightWeight = 0;
     }
-    void Update()
+
+    private void Update()
     {
         if (!isPlaying)
             return;
@@ -75,7 +90,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     // increase the point of the right bag and check the game over
     public void IncreasePointsRight(int theNewPoints)
     {
@@ -89,17 +103,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public GameObject text;
-    public GameObject objectSpawner;
-    public GameObject airManager;
-    public GameObject bagMovement;
-
     public void Restart()
     {
         text.GetComponent<TextManager>().Restart();
         objectSpawner.GetComponent<ObjectSpawner>().Restart();
         airManager.GetComponent<AirManager>().Restart();
-        bagMovement.GetComponent<BagMovement>().Restart();
+        BagMovementScript.Restart();
         leftWeight = 0;
         rightWeight = 0;
     }
@@ -122,17 +131,6 @@ public class GameManager : MonoBehaviour
             LightManager.Instance.flickeringOn();
         }
     }
-    
-    public GameObject Play;
-    public GameObject Menu;
-    public GameObject HowToPlay;
-    public GameObject Credits;
-    public GameObject gameOver;
-
-    private float timeToSet = 0.2f;
-    private IEnumerator coroutine;
-    public Volume effects;
-    public GameObject ClownSharkPrefab;
 
     private IEnumerator GameOverEffectOn()
     {
@@ -163,6 +161,7 @@ public class GameManager : MonoBehaviour
         flage = true;
         isPlaying = false;
         Destroy(BagMovementScript.transform.GetChild(2).GetComponent<CapsuleCollider2D>());
+        BagMovementScript.transform.GetChild(2).GetComponent<BoxCollider2D>().enabled = true;
         Restart();
         if (coroutine != null)
             StopCoroutine(coroutine);
@@ -185,4 +184,9 @@ public class GameManager : MonoBehaviour
         if (coroutine != null)
             StopCoroutine(coroutine);
     }
+
+    public void SpawnClown()
+	{
+        Instantiate(ClownPrefab, new Vector3(0.08f, -2.3f, -2f), Quaternion.identity);
+	}
 }
