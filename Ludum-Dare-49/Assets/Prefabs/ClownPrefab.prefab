@@ -47,8 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251742d632faffc45b1b3e8cff2007e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftBagText: {fileID: 0}
-  RightBagText: {fileID: 0}
   clownWheel: {fileID: 6898918769407113785}
   Bag1: {fileID: 6898918769887749081}
   Bag2: {fileID: 6898918769413743094}
@@ -625,6 +623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6898918770142835833}
   - component: {fileID: 6898918770142835830}
+  - component: {fileID: 7243894630636600677}
   m_Layer: 8
   m_Name: clown
   m_TagString: Untagged
@@ -700,6 +699,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7243894630636600677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6898918770142835832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3d3fab9aa816e7429de35a758be3b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6898918770223003784
 GameObject:
   m_ObjectHideFlags: 0

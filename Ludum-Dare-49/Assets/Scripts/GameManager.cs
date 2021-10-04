@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
     public GameObject ClownPrefab;
     public TextMeshProUGUI LeftBagText;
     public TextMeshProUGUI RightBagText;
+    public Sprite ClownSprite;
+    public Sprite ClownEyesSprite;
 
     private int leftWeight;
     private int rightWeight;
