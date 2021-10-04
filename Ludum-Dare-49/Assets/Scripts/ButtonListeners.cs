@@ -55,6 +55,7 @@ public class ButtonListeners : MonoBehaviour
 		mainCamera = Camera.main;
 		videoImage = VideoPlayerGO.GetComponent<RawImage>();
 		videoPlayer = VideoPlayerGO.GetComponent<VideoPlayer>();
+		videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "rickroll.mp4");
 		videoPlayer.Prepare();
 		videoPlayer.frame = 0;
 	}
