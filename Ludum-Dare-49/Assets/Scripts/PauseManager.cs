@@ -19,24 +19,24 @@ public class PauseManager : MonoBehaviour
 		}
 	}
 
-	public static bool isPaused = false;
+	private bool isPaused = false;
 	public GameObject PausePanel;
 
 	public static bool IsPaused()
 	{
-		return isPaused;
+		return Instance.isPaused;
 	}
 
     public static void Pause()
 	{
-		isPaused = true;
+		Instance.isPaused = true;
 		Time.timeScale = 0f;
 		Instance.PausePanel.SetActive(true);
 	}
 
 	public static void UnPause()
 	{
-		isPaused = false;
+		Instance.isPaused = false;
 		Time.timeScale = 1f;
 		Instance.PausePanel.SetActive(false);
 	}

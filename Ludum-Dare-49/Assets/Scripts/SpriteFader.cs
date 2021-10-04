@@ -18,7 +18,7 @@ public class SpriteFader : MonoBehaviour
 		SpriteRenderer sr = GetComponent<SpriteRenderer>();
 		while (sr.color.a > 0f)
 		{
-			sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a - (1f / 60f) / fadeOutTime);
+			sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a - Time.deltaTime / fadeOutTime);
 			yield return null;
 		}
 

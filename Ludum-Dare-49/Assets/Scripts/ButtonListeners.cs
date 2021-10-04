@@ -36,6 +36,8 @@ public class ButtonListeners : MonoBehaviour
 	private int currentChannel = 1;
 	private Camera mainCamera;
 
+	private bool isHelpOn = false;
+
 	private Coroutine currentCoroutine;
 
 	private void Start()
@@ -132,12 +134,19 @@ public class ButtonListeners : MonoBehaviour
 		if (currentChannel != 1)
 			return;
 
-		Play.SetActive(false);
-		Menu.SetActive(false);
-		HowToPlay.SetActive(true);
+		isHelpOn = !isHelpOn;
 		Credits.SetActive(false);
-		gameOver.SetActive(false);
-		GameManager.Instance.StopTheSpecialEffect();
+		HowToPlay.SetActive(isHelpOn);
+
+		if (isHelpOn && !PauseManager.IsPaused())
+		{
+			PauseManager.Pause();
+		}
+		else if (!isHelpOn)
+		{
+			PauseManager.UnPause();
+		}
+
 	}
 
 	public void CreditsButton()
