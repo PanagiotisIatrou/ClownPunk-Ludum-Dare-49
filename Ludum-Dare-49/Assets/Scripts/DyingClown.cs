@@ -8,7 +8,7 @@ public class DyingClown : MonoBehaviour
 	{
 		if (collision.name == "pool")
 		{
-			Vector3 spawnPos = new Vector3(transform.position.x, -3.47f, -2.5f);
+			Vector3 spawnPos = new Vector3(transform.parent.position.x, -3.47f, -2.5f);
 			Instantiate(GameManager.Instance.ClownSharkPrefab, spawnPos, Quaternion.identity);
 			Destroy(transform.parent.gameObject);
 		}
